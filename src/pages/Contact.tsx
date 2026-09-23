@@ -90,7 +90,7 @@ export default function Contact() {
                       message. Expect a reply within one business day.
                     </p>
                   </>
-                 ) : (
+                ) : (
                   <>
                     <p className="contact-form-lead">
                       Fill out the form and we'll be in touch shortly. Replies
@@ -101,7 +101,12 @@ export default function Contact() {
                       <div className="tk-form-row">
                         <div className="tk-field">
                           <label htmlFor="name">Name</label>
-                          <input id="name" name="name" required placeholder="Jane Doe" />
+                          <input
+                            id="name"
+                            name="name"
+                            required
+                            placeholder="Jane Doe"
+                          />
                         </div>
                         <div className="tk-field">
                           <label htmlFor="email">Email</label>
@@ -117,7 +122,11 @@ export default function Contact() {
                       <div className="tk-form-row">
                         <div className="tk-field">
                           <label htmlFor="company">Company</label>
-                          <input id="company" name="company" placeholder="Company Inc." />
+                          <input
+                            id="company"
+                            name="company"
+                            placeholder="Company Inc."
+                          />
                         </div>
                         <div className="tk-field">
                           <label htmlFor="budget">Budget Range</label>

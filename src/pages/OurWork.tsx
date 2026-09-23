@@ -70,7 +70,11 @@ export default function OurWork() {
             {WORK_PROJECTS.map((project) => (
               <Reveal key={project.caption} className="tk-card">
                 <div className="tk-card-img">
-                  <img src={project.image} alt={`${project.caption} project preview`} />
+                  <img
+                    src={project.image}
+                    alt={`${project.caption} project preview`}
+                    loading="lazy"
+                  />
                 </div>
                 <h3>{project.caption}</h3>
                 <span className="tk-step">{project.tag}</span>

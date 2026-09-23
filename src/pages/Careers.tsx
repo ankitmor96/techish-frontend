@@ -66,7 +66,7 @@ export default function Careers() {
 
       <Marquee items={CAREERS_MARQUEE} />
 
-      {/* ============ LIFE AT TECHISH ============ */}
+      {/* ============ MEET THE TEAM ============ */}
       <section>
         <div className="tk-section-inner">
           <SectionHead
@@ -76,7 +76,11 @@ export default function Careers() {
           <div className="tk-imgband">
             {CAREERS_IMAGES.map((item) => (
               <figure key={item.caption}>
-                <img src={item.image} alt={`Life at Techish — ${item.caption}`} />
+                <img
+                  src={item.image}
+                  alt={`Life at Techish — ${item.caption}`}
+                  loading="lazy"
+                />
                 <figcaption>
                   <span>{item.caption}</span>
                   <em>{item.tag}</em>
@@ -160,7 +164,10 @@ export default function Careers() {
                   <span className="tk-chip">{job.location}</span>
                   <span className="tk-chip">{job.type}</span>
                 </div>
-                <a href="mailto:careers@techishinnovation.com" className="tk-arrowlink">
+                <a
+                  href="mailto:careers@techishinnovation.com"
+                  className="tk-arrowlink"
+                >
                   Apply Now
                 </a>
               </Reveal>

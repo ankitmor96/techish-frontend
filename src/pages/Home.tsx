@@ -145,7 +145,11 @@ export default function Home() {
           >
             {WALKTHROUGH.map((item) => (
               <motion.figure key={item.caption} variants={staggerItem}>
-                <img src={item.image} alt={`Techish Innovation project preview — ${item.caption}`} />
+                <img
+                  src={item.image}
+                  alt={`Techish Innovation project preview — ${item.caption}`}
+                  loading="lazy"
+                />
                 <figcaption>
                   <span>{item.caption}</span>
                   <em>{item.tag}</em>

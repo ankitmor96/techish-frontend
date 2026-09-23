@@ -76,7 +76,11 @@ export default function About() {
           <div className="tk-imgband">
             {ABOUT_IMAGES.map((item) => (
               <figure key={item.caption}>
-                <img src={item.image} alt={`Life at Techish Innovation — ${item.caption}`} />
+                <img
+                  src={item.image}
+                  alt={`Life at Techish Innovation — ${item.caption}`}
+                  loading="lazy"
+                />
                 <figcaption>
                   <span>{item.caption}</span>
                   <em>{item.tag}</em>
@@ -174,7 +178,11 @@ export default function About() {
           <div className="tk-imgband" style={{ marginTop: 48 }}>
             {FOCUS_IMAGES.map((item) => (
               <figure key={item.caption}>
-                <img src={item.image} alt={`How we work — ${item.caption}`} />
+                <img
+                  src={item.image}
+                  alt={`How we work — ${item.caption}`}
+                  loading="lazy"
+                />
                 <figcaption>
                   <span>{item.caption}</span>
                   <em>{item.tag}</em>

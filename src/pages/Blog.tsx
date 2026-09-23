@@ -40,12 +40,14 @@ export default function Blog() {
           <Reveal>
             <article className="tk-card featured-post">
               <div className="tk-card-img">
-                <img src={FEATURED_IMAGE} alt={FEATURED.title} />
+                <img
+                  src={FEATURED_IMAGE}
+                  alt={FEATURED.title}
+                  loading="lazy"
+                />
               </div>
               <div className="featured-body">
-                <span className="tk-step">
-                  Featured — {FEATURED.category}
-                </span>
+                <span className="tk-step">Featured — {FEATURED.category}</span>
                 <h2 className="featured-title">{FEATURED.title}</h2>
                 <p>
                   A practical guide to designing web applications that scale

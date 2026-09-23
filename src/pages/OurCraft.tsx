@@ -9,7 +9,6 @@ import {
   CRAFT_MARQUEE,
   CRAFT_SERVICES,
   CRAFT_SKILLS,
-  CRAFT_REPORT_LINES,
   CRAFT_PROCESS,
   CRAFT_STANDARDS,
   CRAFT_PITFALLS,
@@ -128,7 +127,11 @@ export default function OurCraft() {
           <div className="tk-imgband">
             {CRAFT_IMAGES.map((item) => (
               <figure key={item.caption}>
-                <img src={item.image} alt={`Techish Innovation team — ${item.caption}`} />
+                <img
+                  src={item.image}
+                  alt={`Techish Innovation team — ${item.caption}`}
+                  loading="lazy"
+                />
                 <figcaption>
                   <span>{item.caption}</span>
                   <em>{item.tag}</em>
