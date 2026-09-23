@@ -13,7 +13,10 @@ company website.
   (dark canvas `#0a0a0a`, orange accent `#ff7a17`, Inter + JetBrains Mono)
 - **Framer Motion** — scroll reveals, hero entrance, staggered image bands
 - **Lucide React** — icons (chatbot send/close)
-- **Convex** — retained from the template scaffold (no backend routes used)
+
+No backend is required: all content lives in `src/data/site.ts` and the contact
+form is a client-side demo. The app is a pure static frontend and deploys to
+Vercel (or any static host) with zero environment variables.
 
 ## Pages
 
@@ -48,7 +51,28 @@ public/images/         # Site imagery
 bun install
 bun run dev      # start Vite dev server
 bun tsc -b --noEmit   # typecheck
+bun run build    # production build (tsc + vite build)
 ```
+
+## Deploying to Vercel
+
+- **Build command:** `bun run build` (or `npm run build`)
+- **Output directory:** `dist`
+- **Framework preset:** Vite
+- **Environment variables:** none required
+
+Because this is a single-page app with client-side routing (React Router),
+add a rewrite so direct visits to `/about`, `/contact`, etc. serve `index.html`:
+
+```json
+// vercel.json
+{ "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }] }
+```
+
+> Historically this project scaffolded a Convex backend behind
+> `VITE_CONVEX_URL`. That scaffold was never used and has been fully removed;
+> the `Uncaught Error: Provided address was not an absolute URL.` crash on
+> Vercel came from initializing a Convex client without that variable.
 
 Content is centralized in `src/data/site.ts` — edit copy, add posts, or add
 jobs there without touching page components.
