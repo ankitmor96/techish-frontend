@@ -51,16 +51,16 @@ const POLICY_LINES: TerminalLine[] = [
 
 export default function Careers() {
   return (
-    <SiteLayout title="Careers — Techish Innovation">
+    <SiteLayout title="Careers — Techish Innovations">
       {/* ============ PAGE HERO ============ */}
       <header className="tk-page-hero">
         <p className="tk-eyebrow">Careers</p>
         <h1>
-          Do the Best Work of Your Career, <span>With a Small Senior Team</span>
+          Build Technology for Real-World Problems, <span>With a Small Team</span>
         </h1>
         <p>
-          Build your best work with Techish Innovation — a small, senior team
-          that cares about craftsmanship and ownership.
+          Do your best work at Techish Innovations — a technology product
+          company building AI, software, and emerging technology products.
         </p>
       </header>
 
@@ -78,7 +78,7 @@ export default function Careers() {
               <figure key={item.caption}>
                 <img
                   src={item.image}
-                  alt={`Life at Techish — ${item.caption}`}
+                  alt={`Life at Techish Innovations — ${item.caption}`}
                   loading="lazy"
                 />
                 <figcaption>
@@ -114,9 +114,9 @@ export default function Careers() {
       <section>
         <div className="tk-section-inner">
           <SectionHead
-            eyebrow="Why Techish Innovation"
-            title="Why Engineers and Designers Choose to Work Here"
-            description="We built the kind of company we'd want to work at ourselves — small enough to matter, ambitious enough to challenge you."
+            eyebrow="Why Techish Innovations"
+            title="Why Engineers and Researchers Choose to Work Here"
+            description="We built the kind of company we'd want to work at ourselves — small enough to matter, ambitious enough to build real products."
           />
           <div className="tk-grid tk-grid-4">
             {CAREERS_WHY.map((item) => (
@@ -222,7 +222,7 @@ export default function Careers() {
         <div className="tk-section-inner">
           <SectionHead
             eyebrow="Life at Techish"
-            title="A Team That Cares How the Work Gets Done"
+            title="A Team That Cares How the Products Get Built"
             description="We're intentionally small so every voice matters. Here's what that looks like day to day."
           />
           <div className="tk-grid tk-grid-4">
@@ -248,7 +248,7 @@ export default function Careers() {
       <CTABand
         eyebrow="Don't See the Right Role?"
         title="We're Always Open to Meeting Talented People"
-        description="Reach out and tell us how you'd like to contribute."
+        description="Reach out and tell us the problems you'd like to help solve."
         ctaLabel="Get in Touch"
       />
     </SiteLayout>

@@ -48,16 +48,16 @@ const PROJECT_LINES: TerminalLine[] = [
 
 export default function OurWork() {
   return (
-    <SiteLayout title="Our Work — Techish Innovation">
+    <SiteLayout title="Our Work — Techish Innovations">
       {/* ============ PAGE HERO ============ */}
       <header className="tk-page-hero">
         <p className="tk-eyebrow">Our Work</p>
         <h1>
-          A Portfolio of Software That <span>Performs</span>
+          Products Built for <span>Real Problems</span>
         </h1>
         <p>
-          A selection of projects where Techish Innovation partnered with
-          founders and product teams to build software that performs.
+          A look at the technology Techish Innovations builds — AI, software,
+          and emerging technology products aimed at problems worth solving.
         </p>
       </header>
 
@@ -101,8 +101,8 @@ export default function OurWork() {
         <div className="tk-section-inner">
           <SectionHead
             eyebrow="Track Record"
-            title="Outcomes We Hold Ourselves To"
-            description="Numbers we track internally on every engagement — not vanity metrics."
+            title="How We Measure Ourselves"
+            description="The principles we hold every product to — not vanity metrics."
           />
           <div className="tk-hero-stats tk-stats-4" style={{ marginTop: 0 }}>
             {WORK_STATS.map((stat) => (
@@ -120,8 +120,8 @@ export default function OurWork() {
         <div className="tk-section-inner">
           <SectionHead
             eyebrow="What's Included"
-            title="Every Project Ships With More Than Code"
-            description="These aren't add-ons — they're part of how we deliver every engagement, regardless of size."
+            title="Every Product Gets More Than Code"
+            description="These aren't add-ons — they're part of how we build every product, regardless of size."
           />
           <div className="tk-grid tk-grid-4">
             {WORK_INCLUSIONS.map((item) => (
@@ -138,31 +138,30 @@ export default function OurWork() {
       <section>
         <div className="tk-section-inner">
           <SectionHead
-            eyebrow="Behind the Portfolio"
-            title="From Brief to Launch: A Typical Engagement"
+            eyebrow="Behind the Products"
+            title="From Problem to Product: A Typical Build"
           />
           <Reveal>
             <p className="tk-lede">
-              Most projects in our portfolio follow the same rhythm: a focused
-              discovery phase to nail down scope, a design sprint to validate
-              the experience, and short weekly build cycles with visible
-              progress the whole way through. Clients see working software
-              early — often within the first two weeks — instead of waiting
-              until launch day.
+              Every product follows the same rhythm: research the problem in
+              its real context, prototype to validate that technology can
+              solve it, then build with production engineering and iterate on
+              what real-world use reveals. The problem leads — the technology
+              follows.
             </p>
           </Reveal>
           <div className="tk-hero-stats" style={{ marginTop: 48 }}>
             <div className="tk-stat">
-              <b>2</b>
-              <span>Weeks to first working build</span>
+              <b>4</b>
+              <span>Focus domains: business, civic, sustainability, industry</span>
             </div>
             <div className="tk-stat">
-              <b>Weekly</b>
-              <span>Progress demos</span>
+              <b>Research</b>
+              <span>Before every build</span>
             </div>
             <div className="tk-stat">
               <b>Zero</b>
-              <span>Surprise scope changes</span>
+              <span>Tolerance for solving non-problems</span>
             </div>
           </div>
         </div>
@@ -173,7 +172,7 @@ export default function OurWork() {
         <div className="tk-section-inner">
           <SectionHead
             eyebrow="Our Portfolio"
-            title="A Software Development Portfolio Built Across Web, Mobile & Cloud"
+            title="A Product Portfolio Built Across AI, Software & Emerging Technology"
           />
           <div className="tk-grid tk-grid-2">
             {WORK_PORTFOLIO_POINTS.map((point) => (
@@ -189,9 +188,9 @@ export default function OurWork() {
       {/* ============ CTA ============ */}
       <CTABand
         eyebrow="See It For Yourself"
-        title="Let's Build Software That Performs"
-        description="Tell us about your project and get a real conversation with the engineers who'd build it."
-        ctaLabel="Start a Project"
+        title="Let's Build Technology That Solves"
+        description="Tell us about the problem you're looking at and get a real conversation with the people who'd build the solution."
+        ctaLabel="Start a Conversation"
       />
     </SiteLayout>
   );

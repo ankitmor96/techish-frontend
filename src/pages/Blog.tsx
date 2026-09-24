@@ -18,17 +18,17 @@ const FEATURED_IMAGE = "/images/4.jpg";
 
 export default function Blog() {
   return (
-    <SiteLayout title="Blog — Techish Innovation">
+    <SiteLayout title="Blog — Techish Innovations">
       {/* ============ PAGE HERO ============ */}
       <header className="tk-page-hero">
         <p className="tk-eyebrow">Insights &amp; Ideas</p>
         <h1>
-          Ideas on Engineering &amp; Product, <span>From Our Team</span>
+          Notes on Products, Research &amp; Technology, <span>From Our Team</span>
         </h1>
         <p>
-          Practical, no-fluff perspectives on software engineering, product
-          strategy, and design — written by the people building it, not a
-          content mill chasing keywords.
+          Practical, no-fluff perspectives on AI, software products, emerging
+          technology, and the real-world problems they solve — written by the
+          people building it.
         </p>
       </header>
 
@@ -50,10 +50,10 @@ export default function Blog() {
                 <span className="tk-step">Featured — {FEATURED.category}</span>
                 <h2 className="featured-title">{FEATURED.title}</h2>
                 <p>
-                  A practical guide to designing web applications that scale
-                  gracefully — from modular monoliths to microservices, covering
-                  caching strategies, database sharding, and horizontal scaling
-                  patterns.
+                  How we take AI from promising capability to working product —
+                  problem selection, applied research, and production
+                  engineering, from our latest article on building AI products
+                  that solve real problems.
                 </p>
                 <span className="tk-arrowlink">Read Article</span>
               </div>

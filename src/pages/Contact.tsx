@@ -49,16 +49,16 @@ export default function Contact() {
   };
 
   return (
-    <SiteLayout title="Contact Us — Techish Innovation">
+    <SiteLayout title="Contact Us — Techish Innovations">
       {/* ============ PAGE HERO ============ */}
       <header className="tk-page-hero">
         <p className="tk-eyebrow">Contact Us</p>
         <h1>
-          Tell Us About <span>Your Project</span>
+          Tell Us About <span>Your Problem</span>
         </h1>
         <p>
-          Tell Techish Innovation about your project and our team will get back
-          to you within one business day.
+          Tell Techish Innovations about the real-world problem you're looking
+          at — our team will get back to you within one business day.
         </p>
       </header>
 
@@ -184,8 +184,8 @@ export default function Contact() {
         <div className="tk-section-inner">
           <SectionHead
             eyebrow="How It Works"
-            title="Your Idea, Our Process"
-            description="A clear, no-nonsense path from the first hello to a project in motion."
+            title="Your Problem, Our Process"
+            description="A clear, no-nonsense path from the first conversation to a plan in motion."
           />
           <div className="tk-grid tk-grid-3">
             {CONTACT_PROCESS.map((step) => (
@@ -244,11 +244,10 @@ export default function Contact() {
       {/* ============ CTA ============ */}
       <section className="tk-cta">
         <p className="tk-eyebrow">Get Started</p>
-        <h2>Start Your Software Development Project With Confidence</h2>
+        <h2>Start the Conversation With Confidence</h2>
         <p>
-          Every inquiry starts with a short, no-pressure discovery call. Your
-          information stays confidential — we're happy to sign an NDA before
-          any deeper conversation.
+          Every conversation starts with the problem — no pressure, no pitch.
+          Your information stays confidential throughout.
         </p>
         <button
           type="button"

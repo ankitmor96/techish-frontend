@@ -9,9 +9,9 @@ interface ChatMessage {
 }
 
 const SUGGESTIONS = [
-  "What services do you offer?",
-  "Tell me about your process",
-  "How do engagements work?",
+  "What does Techish build?",
+  "Which problems do you focus on?",
+  "What products are you building?",
   "How do I apply for a job?",
 ];
 
@@ -21,40 +21,40 @@ const ANSWERS: Array<{
   link?: { label: string; to: string };
 }> = [
   {
-    keywords: ["service", "offer", "build", "web", "mobile", "ai", "cloud", "design"],
-    text: "We build custom web platforms, mobile apps, internal tools, AI & automation systems, UI/UX design, and cloud & DevOps foundations. Six core disciplines, one senior team.",
-    link: { label: "Explore our craft →", to: "/our-craft" },
+    keywords: ["service", "offer", "build", "product", "web", "mobile", "ai", "tech"],
+    text: "Techish Innovations is a technology product company. We build AI, software, and emerging technology products designed to solve complex problems across business, civic infrastructure, sustainability, and industry.",
+    link: { label: "Explore our products →", to: "/our-craft" },
   },
   {
-    keywords: ["process", "how", "work", "steps", "sprint"],
-    text: "Every engagement runs through four steps: Discover → Design → Build → Launch & Grow. Short sprints, weekly demos, and visible progress from week one.",
-    link: { label: "How we work →", to: "/" },
+    keywords: ["problem", "focus", "domain", "industr", "civic", "sustain"],
+    text: "Our products concentrate on four domains: business, civic infrastructure, sustainability, and industry. Every product starts from a real problem worth solving.",
+    link: { label: "Where we build →", to: "/" },
   },
   {
-    keywords: ["engagement", "pricing", "cost", "budget", "fixed", "dedicated", "quote"],
-    text: "Two engagement models: Fixed-Scope Projects (clear brief, fixed timeline & price) or a Dedicated Team that scales with your roadmap. We recommend what fits your goals.",
-    link: { label: "Start a project →", to: "/contact" },
+    keywords: ["process", "how", "work", "steps", "research"],
+    text: "Every product runs through four steps: Research → Prototype → Build → Ship & Iterate. Applied research and production engineering sit in the same team.",
+    link: { label: "How we build →", to: "/" },
   },
   {
-    keywords: ["nda", "confidential", "security", "secure"],
-    text: "Happy to sign an NDA before any detailed discussion. Security-by-default architecture and code review are baked into every engagement.",
-    link: { label: "Contact us →", to: "/contact" },
+    keywords: ["product", "platform", "roadmap"],
+    text: "We build our own technology — AI, software, and emerging technology products, plus collaborations with organizations on shared problems.",
+    link: { label: "See our work →", to: "/our-work" },
   },
   {
     keywords: ["job", "career", "apply", "hiring", "role", "open"],
-    text: "We're currently hiring a Senior Full-Stack Engineer, a Product Designer, and a Cloud & DevOps Engineer — all remote, all full-time.",
+    text: "We're currently hiring an AI Engineer, a Product Engineer, and a Technology Researcher — all remote, all full-time.",
     link: { label: "See open roles →", to: "/careers" },
   },
   {
     keywords: ["contact", "email", "call", "reach", "talk"],
-    text: "The fastest way to reach us is the contact form — a real engineer reviews every inquiry and replies within one business day.",
+    text: "The fastest way to reach us is the contact form — tell us the problem you're looking at and we'll reply within one business day.",
     link: { label: "Contact us →", to: "/contact" },
   },
 ];
 
 const FALLBACK: ChatMessage = {
   role: "bot",
-  text: "Great question! For anything specific, the team can give you a proper answer — drop your question in the contact form and we'll reply within one business day.",
+  text: "Great question! For anything specific, the team can give you a proper answer — tell us the problem you're looking at through the contact form and we'll reply within one business day.",
   link: { label: "Contact us →", to: "/contact" },
 };
 
@@ -73,7 +73,7 @@ export function ChatbotWidget() {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       role: "bot",
-      text: "Hi! I'm the Techish assistant. Ask me about our services, process, or engagement models — or pick a topic below.",
+      text: "Hi! I'm the Techish assistant. Ask me about our products, focus areas, or how we build — or pick a topic below.",
     },
   ]);
   const [input, setInput] = useState("");
@@ -173,7 +173,7 @@ export function ChatbotWidget() {
             </button>
           </div>
 
-          <p className="tk-ai-note">AI answers are illustrative — no data leaves your browser.</p>
+          <p className="tk-ai-note">AI answers are illustrative — for anything specific, reach out via the contact page.</p>
         </div>
       )}
     </>

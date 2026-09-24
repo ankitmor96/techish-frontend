@@ -56,8 +56,8 @@ function NavDropdown({ label, items, active }: NavDropdownProps) {
 }
 
 /**
- * Sticky top navigation with hover dropdowns (Software / Company), a mobile
- * hamburger slide-down menu, and the "Start a Project" CTA.
+ * Sticky top navigation with hover dropdowns (Products / Company), a mobile
+ * hamburger slide-down menu, and the "Start a Conversation" CTA.
  */
 export function Navbar() {
   const { pathname } = useLocation();
@@ -82,7 +82,7 @@ export function Navbar() {
       <nav className="tk-nav">
         <div className="tk-nav-inner">
           <Link to="/" className="tk-logo">
-            <span className="tk-logo-mark">T</span> Techish Innovation
+            <span className="tk-logo-mark">T</span> Techish Innovations
           </Link>
 
           <div className="tk-nav-links">
@@ -93,7 +93,7 @@ export function Navbar() {
               Home
             </Link>
             <NavDropdown
-              label="Software"
+              label="Products"
               active={pathname === "/our-craft"}
               items={SOFTWARE_ITEMS}
             />
@@ -123,7 +123,7 @@ export function Navbar() {
           </button>
 
           <Link to="/contact" className="tk-pill nav-cta">
-            Start a Project
+            Start a Conversation
           </Link>
         </div>
       </nav>
@@ -134,7 +134,7 @@ export function Navbar() {
       >
         <Link to="/">Home</Link>
         <div className="tk-m-group">
-          <b>Software</b>
+          <b>Products</b>
           {SOFTWARE_ITEMS.map((item) => (
             <Link key={item.label} to={item.href}>
               {item.label} <small>{item.tag}</small>
@@ -156,12 +156,12 @@ export function Navbar() {
 }
 
 const SOFTWARE_ITEMS: DropdownItem[] = [
-  { label: "Web Development", href: "/our-craft", tag: "WEB" },
-  { label: "Mobile Apps", href: "/our-craft", tag: "MOB" },
-  { label: "Custom Software", href: "/our-craft", tag: "SOFT" },
-  { label: "AI & Automation", href: "/our-craft", tag: "AI" },
-  { label: "Cloud & DevOps", href: "/our-craft", tag: "CLD" },
-  { label: "UI/UX Design", href: "/our-craft", tag: "UX" },
+  { label: "AI Products", href: "/our-craft", tag: "AI" },
+  { label: "Software Products", href: "/our-craft", tag: "SOFT" },
+  { label: "Emerging Technology", href: "/our-craft", tag: "EMT" },
+  { label: "Civic Infrastructure", href: "/our-craft", tag: "CIV" },
+  { label: "Sustainability", href: "/our-craft", tag: "SUS" },
+  { label: "Industry", href: "/our-craft", tag: "IND" },
 ];
 
 const COMPANY_ITEMS: DropdownItem[] = [

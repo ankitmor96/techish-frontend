@@ -3,7 +3,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 
 export default function NotFound() {
   return (
-    <SiteLayout title="Page Not Found — Techish Innovation">
+    <SiteLayout title="Page Not Found — Techish Innovations">
       <section className="tk-cta" style={{ paddingTop: 160, paddingBottom: 160 }}>
         <p className="tk-eyebrow">404</p>
         <h2>Page Not Found</h2>

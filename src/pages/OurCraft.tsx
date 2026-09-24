@@ -102,16 +102,17 @@ function SkillBar({ name, pct }: { name: string; pct: number }) {
 
 export default function OurCraft() {
   return (
-    <SiteLayout title="Our Craft — Techish Innovation">
+    <SiteLayout title="Our Products — Techish Innovations">
       {/* ============ PAGE HERO ============ */}
       <header className="tk-page-hero">
-        <p className="tk-eyebrow">Our Craft</p>
+        <p className="tk-eyebrow">Our Products</p>
         <h1>
-          Engineering, Design &amp; Strategy — <span>Under One Roof</span>
+          AI, Software &amp; Emerging Technology — <span>Built In-House</span>
         </h1>
         <p>
-          Six core disciplines, one senior team. Every engagement draws on the
-          same capabilities — mixed and matched to fit your project.
+          Six product focus areas, one team. Every product starts from a
+          real-world problem — in business, civic infrastructure,
+          sustainability, or industry.
         </p>
       </header>
 
@@ -129,7 +130,7 @@ export default function OurCraft() {
               <figure key={item.caption}>
                 <img
                   src={item.image}
-                  alt={`Techish Innovation team — ${item.caption}`}
+                  alt={`Techish Innovations team — ${item.caption}`}
                   loading="lazy"
                 />
                 <figcaption>
@@ -146,9 +147,9 @@ export default function OurCraft() {
       <section>
         <div className="tk-section-inner">
           <SectionHead
-            eyebrow="What We Offer"
-            title="Six Disciplines, One Team"
-            description="Every engagement draws on the same core capabilities — mixed and matched to fit your project."
+            eyebrow="What We Build"
+            title="Six Focus Areas, One Product Team"
+            description="Every product draws on the same core capabilities — applied research, product engineering, and real-world iteration."
           />
           <div className="tk-grid tk-grid-3">
             {CRAFT_SERVICES.map((service) => (
@@ -175,8 +176,8 @@ export default function OurCraft() {
           <div>
             <SectionHead
               eyebrow="Where We're Strongest"
-              title="Depth Across the Full Stack"
-              description="We don't specialize in a single layer of the stack. Our team carries deep, hands-on capability across every discipline a modern product needs."
+              title="Depth Across the Product Lifecycle"
+              description="We don't specialize in a single layer. Our team carries deep, hands-on capability across every stage a real product needs — from research to production."
             />
             {CRAFT_SKILLS.map((skill) => (
               <SkillBar key={skill.name} name={skill.name} pct={skill.pct} />
@@ -197,9 +198,9 @@ export default function OurCraft() {
       <section>
         <div className="tk-section-inner">
           <SectionHead
-            eyebrow="Delivery Process"
-            title="How Every Engagement Runs"
-            description="A consistent, transparent framework that keeps every project on time and on scope."
+            eyebrow="Product Process"
+            title="How Every Product Gets Built"
+            description="A consistent framework that carries every product from a real problem to a working solution."
           />
           <div className="tk-grid tk-grid-4">
             {CRAFT_PROCESS.map((step) => (
@@ -218,8 +219,8 @@ export default function OurCraft() {
         <div className="tk-section-inner">
           <SectionHead
             eyebrow="How We Build"
-            title="Quality Standards We Never Skip"
-            description="The tools change project to project. These standards don't."
+            title="Standards We Never Skip"
+            description="The technology changes product to product. These standards don't."
           />
           <div className="tk-grid tk-grid-4">
             {CRAFT_STANDARDS.map((standard) => (
@@ -264,9 +265,9 @@ export default function OurCraft() {
       <section>
         <div className="tk-section-inner">
           <SectionHead
-            eyebrow="How We Deliver"
-            title="Why Businesses Choose Techish Innovation for Software Development"
-            description="Our craft goes beyond writing code — it's a disciplined approach to building software that performs in production, not just in a demo."
+            eyebrow="How We Build"
+            title="Why Organizations Work With Techish Innovations"
+            description="Our approach goes beyond writing code — it's a disciplined product practice for technology that works in the real world, not just in a demo."
           />
           <div className="tk-grid tk-grid-2">
             {CRAFT_DELIVERY.map((item) => (
@@ -278,10 +279,10 @@ export default function OurCraft() {
           </div>
           <Reveal className="quote-wrap">
             <blockquote className="tk-blockquote">
-              We don't chase trends. We choose the right tool for the job, every
-              single time — because your product has to outlive whatever's
-              fashionable this year.
-              <cite>— Engineering Principles</cite>
+              We don't chase trends. We choose the technology the problem
+              deserves, every single time — because a product has to outlive
+              whatever's fashionable this year.
+              <cite>— Product Principles</cite>
             </blockquote>
           </Reveal>
         </div>
@@ -289,9 +290,9 @@ export default function OurCraft() {
 
       {/* ============ CTA ============ */}
       <CTABand
-        eyebrow="Not Sure Which Service Fits?"
-        title="Tell Us What You're Building"
-        description="We'll help you scope the right approach for your project."
+        eyebrow="Have a Problem in Mind?"
+        title="Tell Us the Problem"
+        description="We'll help you figure out whether — and how — technology can solve it."
         ctaLabel="Talk to Our Team"
       />
     </SiteLayout>

@@ -26,17 +26,18 @@ const FOCUS_IMAGES = [
 
 export default function About() {
   return (
-    <SiteLayout title="About Us — Techish Innovation">
+    <SiteLayout title="About Us — Techish Innovations">
       {/* ============ PAGE HERO ============ */}
       <header className="tk-page-hero">
         <p className="tk-eyebrow">About Us</p>
         <h1>
-          A Software Engineering Company <span>Built by Engineers</span>
+          A Technology Product Company <span>Built by Engineers</span>
         </h1>
         <p>
-          Techish Innovation is a full-stack software engineering company that
-          designs, builds, and scales digital products for startups and
-          enterprises.
+          Techish Innovations is a technology product company building AI,
+          software, and emerging technology products designed to solve complex
+          problems across business, civic infrastructure, sustainability, and
+          industry.
         </p>
       </header>
 
@@ -48,18 +49,19 @@ export default function About() {
           <div className="tk-grid tk-grid-2">
             <Reveal className="tk-card">
               <span className="tk-step">Our Mission</span>
-              <h3>Move Business Faster Through Thoughtful Technology</h3>
+              <h3>Technology for Real-World Problems</h3>
               <p>
-                Delivering software that is reliable, maintainable, and built
-                around real user needs — not just feature lists.
+                Build products that solve complex problems across business,
+                civic infrastructure, sustainability, and industry — with AI,
+                software, and emerging technology.
               </p>
             </Reveal>
             <Reveal className="tk-card" delay={0.1}>
               <span className="tk-step">Our Vision</span>
-              <h3>The Partner Companies Trust for Mission-Critical Software</h3>
+              <h3>A World Where Problems Are Solved With Long-Term Technology</h3>
               <p>
-                Known for craftsmanship, transparency, and long-term
-                reliability in everything we build.
+                Technology products built to last — researched, engineered, and
+                improved over time as the problems they solve evolve.
               </p>
             </Reveal>
           </div>
@@ -70,15 +72,15 @@ export default function About() {
       <section>
         <div className="tk-section-inner">
           <SectionHead
-            eyebrow="Life at Techish Innovation"
-            title="Small Team. Big Standards."
+            eyebrow="Life at Techish Innovations"
+            title="Small Team. Real Products."
           />
           <div className="tk-imgband">
             {ABOUT_IMAGES.map((item) => (
               <figure key={item.caption}>
                 <img
                   src={item.image}
-                  alt={`Life at Techish Innovation — ${item.caption}`}
+                  alt={`Life at Techish Innovations — ${item.caption}`}
                   loading="lazy"
                 />
                 <figcaption>
@@ -96,8 +98,8 @@ export default function About() {
         <div className="tk-section-inner">
           <SectionHead
             eyebrow="Our Journey"
-            title="How We Got Here"
-            description="A small team with a simple goal: build software worth being proud of."
+            title="From Engineering Roots to a Product Company"
+            description="A team of engineers that decided to build its own technology — products aimed at real problems."
           />
           <div className="tk-grid tk-grid-4">
             {ABOUT_JOURNEY.map((milestone) => (
@@ -116,7 +118,7 @@ export default function About() {
         <div className="tk-section-inner">
           <SectionHead
             eyebrow="What Drives Us"
-            title="The Principles That Shape Every Project"
+            title="The Principles That Shape Every Product"
           />
           <div className="tk-grid tk-grid-4">
             {ABOUT_PRINCIPLES.map((principle) => (
@@ -135,8 +137,8 @@ export default function About() {
         <div className="tk-section-inner">
           <SectionHead
             eyebrow="Day to Day"
-            title="How We Actually Work Together"
-            description="No black boxes. You get a small, senior team, a shared roadmap, and visibility into progress every step of the way."
+            title="How We Actually Build Products"
+            description="Research, prototype, build, iterate — a product practice that starts with the problem and ends in the real world."
           />
           <div className="tk-grid tk-grid-4">
             {ABOUT_DAY_TO_DAY.map((item) => (
@@ -163,9 +165,9 @@ export default function About() {
       <section>
         <div className="tk-section-inner">
           <SectionHead
-            eyebrow="Software Development Company"
-            title="The Software Development Partner Growing Businesses Choose"
-            description="Techish Innovation combines strategic thinking with hands-on engineering to help companies ship reliable software faster."
+            eyebrow="Technology Product Company"
+            title="Products, Problems, and Long-Term Technology"
+            description="Techish Innovations concentrates on AI, software, and emerging technology — building products where real problems demand real solutions."
           />
           <div className="tk-grid tk-grid-2">
             {ABOUT_SDE_POINTS.map((point) => (
@@ -196,8 +198,8 @@ export default function About() {
       {/* ============ CTA ============ */}
       <CTABand
         eyebrow="Let's Talk"
-        title="Let's Build Something Worth Talking About"
-        description="Whether you have a detailed spec or just a strong idea, we'd love to hear about it."
+        title="Let's Talk About the Problem"
+        description="Whether you bring a defined challenge or just a strong signal, we'd love to explore it with you."
         ctaLabel="Start the Conversation"
       />
     </SiteLayout>
