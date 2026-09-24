@@ -13,7 +13,6 @@ import {
   CAREERS_PROCESS,
   CAREERS_FAQS,
   CAREERS_CULTURE,
-  CAREERS_POLICY_LINES,
 } from "@/data/site";
 
 const CAREERS_IMAGES = [

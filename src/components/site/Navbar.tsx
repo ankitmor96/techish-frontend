@@ -63,10 +63,13 @@ export function Navbar() {
   const { pathname } = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  // Close the mobile menu whenever the route changes
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
+  // Close the mobile menu whenever the route changes (state-during-render
+  // pattern from React docs — same behavior, no cascading render from an effect)
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
+    if (mobileOpen) setMobileOpen(false);
+  }
 
   useEffect(() => {
     if (!mobileOpen) return;
