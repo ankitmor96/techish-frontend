@@ -89,51 +89,46 @@ export interface Service {
   title: string;
   description: string;
   chips?: string[];
+  cta?: string;
   href: string;
 }
 
-/** Home "What We Build" cards — icon order: AI, WEB, SOFT, MOBILE, UI/UX, CLOUD */
+/** Home "What We're Building" product portfolio — 01 AI · 02 Civic Infrastructure · 03 Circular Economy · 04 Skills */
 export const HOME_SERVICES: Service[] = [
   {
-    icon: "AI",
-    title: "AI Products",
+    icon: "01",
+    title: "AI Employees",
     description:
-      "AI-driven products and applied intelligence that turn complex data into practical, real-world outcomes.",
+      "AI systems that don't just answer questions — they understand your business, execute workflows, and help you make better decisions.",
+    chips: ["AI Agents", "Automation", "Business Intelligence"],
+    cta: "Explore AI Employee",
     href: "/our-craft",
   },
   {
-    icon: "WEB",
-    title: "Software Products",
+    icon: "02",
+    title: "Civic Alert",
     description:
-      "Web and mobile products built in-house to solve specific problems for business and industry.",
+      "Intelligent infrastructure that helps cities communicate critical road, incident, and public-safety information with the people who need it.",
+    chips: ["GovTech", "Geospatial", "Real-Time Alerts"],
+    cta: "Explore Civic Alert",
     href: "/our-craft",
   },
   {
-    icon: "SOFT",
-    title: "Emerging Technology",
+    icon: "03",
+    title: "EV Circular",
     description:
-      "Applied research and development into emerging technology with the potential for real-world impact.",
+      "Building technology for the lifecycle of electric vehicles.",
+    chips: ["Circular Economy", "EV Lifecycle", "Sustainability"],
+    cta: "Explore EV Circular",
     href: "/our-craft",
   },
   {
-    icon: "MOBILE",
-    title: "Innovation Areas",
+    icon: "04",
+    title: "Skill-Based Networks",
     description:
-      "Focused innovation across business, civic infrastructure, sustainability, and industry.",
-    href: "/our-craft",
-  },
-  {
-    icon: "UI/UX",
-    title: "Technology for Real-World Problems",
-    description:
-      "Every product starts with a real problem — technology is built around solving it, not around hype.",
-    href: "/our-craft",
-  },
-  {
-    icon: "CLOUD",
-    title: "Research & Build",
-    description:
-      "A research-driven approach to building: explore the problem, prototype the solution, ship the product.",
+      "Technology built around skill-based networks — one of the four opportunities our products are designed for.",
+    chips: ["Skill-Based Networks", "Skills", "Emerging Technology"],
+    cta: "Explore Skill-Based Networks",
     href: "/our-craft",
   },
 ];

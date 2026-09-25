@@ -91,15 +91,14 @@ export default function Home() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="flex flex-col items-center"
         >
-          <p className="tk-eyebrow">Technology Product Company</p>
+          <p className="tk-eyebrow">Technology Products for a Changing World</p>
           <h1>
-            Building Products for <span>Real-World</span> Problems.
+            We Build Products That Move the <span>World Forward</span>.
           </h1>
           <p className="tk-hero-sub">
-            Techish Innovations is a technology product company building AI,
-            software, and emerging technology products designed to solve
-            complex problems across business, civic infrastructure,
-            sustainability, and industry.
+            From AI employees and intelligent cities to circular economies and
+            skill-based networks, Techish builds products designed to solve
+            problems at scale.
           </p>
           <div className="tk-hero-cta">
             <Link to="/our-work" className="tk-pill solid">
@@ -198,7 +197,8 @@ export default function Home() {
         <div className="tk-section-inner">
           <SectionHead
             eyebrow="What We Build"
-            title="Technology for Real-World Problems"
+            title="What We're Building"
+            description="A growing portfolio of products designed around four major opportunities."
           />
           <div className="tk-grid tk-grid-3">
             {HOME_SERVICES.map((service) => (
@@ -206,8 +206,17 @@ export default function Home() {
                 <span className="tk-service-icon">{service.icon}</span>
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
+                {service.chips && service.chips.length > 0 && (
+                  <div className="tk-chips">
+                    {service.chips.map((chip) => (
+                      <span key={chip} className="tk-chip">
+                        {chip}
+                      </span>
+                    ))}
+                  </div>
+                )}
                 <Link to={service.href} className="tk-arrowlink">
-                  Explore
+                  {service.cta ?? "Explore"}
                 </Link>
               </Reveal>
             ))}
