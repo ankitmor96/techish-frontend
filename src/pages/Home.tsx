@@ -1,7 +1,5 @@
-import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
-import { AnimatePresence, motion } from "framer-motion";
-import { X } from "lucide-react";
+import { motion } from "framer-motion";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Marquee } from "@/components/site/Marquee";
 import { SectionHead } from "@/components/site/SectionHead";
@@ -10,50 +8,15 @@ import { Reveal } from "@/components/site/Reveal";
 import {
   HOME_MARQUEE,
   HOME_STATS,
-  HOME_SERVICES,
   HOME_PROCESS,
   HOME_WHY,
   INDUSTRIES,
   ENGAGEMENTS,
   PARTNERSHIP,
   HOME_FAQS,
-  COMPANY_EMAIL,
-  type Service,
 } from "@/data/site";
 
 export default function Home() {
-  const [activeProduct, setActiveProduct] = useState<Service | null>(null);
-  const hoverTimer = useRef<number | null>(null);
-
-  // Open the popup immediately (click / keyboard focus)
-  const openProduct = (service: Service) => {
-    if (hoverTimer.current) {
-      window.clearTimeout(hoverTimer.current);
-      hoverTimer.current = null;
-    }
-    setActiveProduct(service);
-  };
-
-  // Open the same popup after a short hover delay
-  const scheduleProductOpen = (service: Service) => {
-    if (hoverTimer.current) window.clearTimeout(hoverTimer.current);
-    hoverTimer.current = window.setTimeout(() => {
-      hoverTimer.current = null;
-      setActiveProduct(service);
-    }, 300);
-  };
-
-  const cancelScheduledOpen = () => {
-    if (hoverTimer.current) {
-      window.clearTimeout(hoverTimer.current);
-      hoverTimer.current = null;
-    }
-  };
-
-  useEffect(() => {
-    return () => cancelScheduledOpen();
-  }, []);
-
   return (
     <SiteLayout title="Techish Innovations — Building Products for Real-World Problems">
       {/* ============ HERO ============ */}
@@ -115,45 +78,6 @@ export default function Home() {
                 <span className="tk-step">{step.step}</span>
                 <h3>{step.title}</h3>
                 <p>{step.description}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ============ WHAT WE BUILD ============ */}
-      <section>
-        <div className="tk-section-inner">
-          <SectionHead
-            eyebrow="What We Build"
-            title="What We're Building"
-            description="A growing portfolio of products designed around four major opportunities."
-          />
-          <div className="tk-grid tk-grid-3">
-            {HOME_SERVICES.map((service) => (
-              <Reveal key={service.title} className="tk-card">
-                <span className="tk-service-icon">{service.icon}</span>
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-                {service.chips && service.chips.length > 0 && (
-                  <div className="tk-chips">
-                    {service.chips.map((chip) => (
-                      <span key={chip} className="tk-chip">
-                        {chip}
-                      </span>
-                    ))}
-                  </div>
-                )}
-                <button
-                  type="button"
-                  className="tk-arrowlink"
-                  onMouseEnter={() => scheduleProductOpen(service)}
-                  onMouseLeave={cancelScheduledOpen}
-                  onFocus={() => openProduct(service)}
-                  onClick={() => openProduct(service)}
-                >
-                  {service.cta ?? "Explore"}
-                </button>
               </Reveal>
             ))}
           </div>
@@ -273,103 +197,6 @@ export default function Home() {
         description="Tell us about the real-world problem you're looking at — let's explore how technology could solve it."
         ctaLabel="Start the Conversation"
       />
-
-      {/* ============ PRODUCT MODAL ============ */}
-      <ProductModal
-        service={activeProduct}
-        onClose={() => setActiveProduct(null)}
-      />
     </SiteLayout>
-  );
-}
-
-/**
- * Product detail modal opened from the "What We're Building" cards.
- * Product-specific copy comes from `service.modal`; contact uses the company email.
- */
-function ProductModal({
-  service,
-  onClose,
-}: {
-  service: Service | null;
-  onClose: () => void;
-}) {
-  const closeRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    if (!service) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
-    document.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
-    closeRef.current?.focus();
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-    };
-  }, [service, onClose]);
-
-  return (
-    <AnimatePresence>
-      {service && (
-        <motion.div
-          className="tk-modal-overlay"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2, ease: "easeOut" }}
-          onClick={onClose}
-        >
-          <motion.div
-            className="tk-modal"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="tk-modal-title"
-            initial={{ opacity: 0, y: 24, scale: 0.97 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 16, scale: 0.97 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              ref={closeRef}
-              type="button"
-              className="tk-modal-close"
-              aria-label="Close"
-              onClick={onClose}
-            >
-              <X className="size-4" />
-            </button>
-            <p className="tk-eyebrow">{service.icon} — Techish Innovations</p>
-            <h3 id="tk-modal-title">{service.title}</h3>
-            <p className="tk-modal-desc">{service.modal}</p>
-            {service.chips && service.chips.length > 0 && (
-              <div className="tk-chips">
-                {service.chips.map((chip) => (
-                  <span key={chip} className="tk-chip">
-                    {chip}
-                  </span>
-                ))}
-              </div>
-            )}
-            <div className="tk-modal-contact">
-              <p className="tk-eyebrow">Get in Touch</p>
-              <a className="tk-modal-email" href={`mailto:${COMPANY_EMAIL}`}>
-                {COMPANY_EMAIL}
-              </a>
-              <a
-                className="tk-pill solid"
-                href={`mailto:${COMPANY_EMAIL}?subject=${encodeURIComponent(
-                  service.title,
-                )}`}
-              >
-                Email Us About {service.title}
-              </a>
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
   );
 }
