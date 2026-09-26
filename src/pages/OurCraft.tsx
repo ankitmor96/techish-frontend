@@ -12,16 +12,38 @@ import {
   COMPANY_EMAIL,
 } from "@/data/site";
 
-/** Product image band — wired to the 4 user-provided product images. */
-const PRODUCT_IMAGES = [
-  { image: "/images/product-1.jpg", name: "AI Employees" },
-  { image: "/images/product-2.jpg", name: "Civic Alert" },
-  { image: "/images/product-3.jpg", name: "EV Circular" },
-  { image: "/images/product-4.jpg", name: "Skill-Based Networks" },
-] as const;
-
-/** Static, product-engineering dashboard visual — pure CSS/SVG, no data. */
-const DASH_BARS = [62, 78, 45, 88, 56, 71, 39, 82] as const;
+/**
+ * Product image band — wired to the user-provided product images.
+ * Files live in /public/images; drop a file in with the matching name and it
+ * appears automatically. Until a file exists the card shows a branded
+ * monogram fallback (no stock images used).
+ */
+const PRODUCT_IMAGES: Array<{
+  image: string;
+  name: string;
+  tag: string;
+}> = [
+  {
+    image: "/images/product-ai-employee.jpg",
+    name: "AI Employees",
+    tag: "AI",
+  },
+  {
+    image: "/images/product-civic-alert.jpg",
+    name: "Civic Alert",
+    tag: "CIVIC",
+  },
+  {
+    image: "/images/product-ev-circular.jpg",
+    name: "EV Circular",
+    tag: "EV",
+  },
+  {
+    image: "/images/product-skill-networks.jpg",
+    name: "Skill-Based Networks",
+    tag: "SKILLS",
+  },
+];
 
 export default function OurCraft() {
   return (
@@ -51,10 +73,17 @@ export default function OurCraft() {
           <div className="tk-product-grid">
             {PRODUCT_IMAGES.map((item) => (
               <figure key={item.name} className="tk-product-card">
+                <div className="tk-product-fallback" aria-hidden="true">
+                  <b>{item.name.charAt(0)}</b>
+                  <em>{item.tag}</em>
+                </div>
                 <img
                   src={item.image}
                   alt={`Techish Innovations product — ${item.name}`}
                   loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                  }}
                 />
                 <figcaption>
                   <span>{item.name}</span>
@@ -112,79 +141,16 @@ export default function OurCraft() {
             description="A look at how our products think — applied AI, real-time signals, and human-readable insight, built into the same product practice."
           />
           <Reveal>
-            <div className="tk-dash" role="img" aria-label="Illustrative AI product dashboard">
-              <div className="tk-dash-side">
-                <span className="tk-dash-mark">T</span>
-                <i className="tk-dash-ico on" />
-                <i className="tk-dash-ico" />
-                <i className="tk-dash-ico" />
-              </div>
-              <div className="tk-dash-main">
-                <div className="tk-dash-top">
-                  <b>Product Intelligence Overview</b>
-                  <span className="tk-dash-live">
-                    <i /> live
-                  </span>
-                </div>
-                <div className="tk-dash-kpis">
-                  <div className="tk-dash-kpi">
-                    <span>Signals processed</span>
-                    <b>1.2M</b>
-                    <em>+8.4%</em>
-                  </div>
-                  <div className="tk-dash-kpi">
-                    <span>Automations active</span>
-                    <b>312</b>
-                    <em>+12</em>
-                  </div>
-                  <div className="tk-dash-kpi">
-                    <span>Model confidence</span>
-                    <b>97.3%</b>
-                    <em>+0.6</em>
-                  </div>
-                  <div className="tk-dash-kpi">
-                    <span>Issues resolved</span>
-                    <b>1,904</b>
-                    <em>+34</em>
-                  </div>
-                </div>
-                <div className="tk-dash-body">
-                  <div className="tk-dash-chart">
-                    <span className="tk-dash-label">Signal activity</span>
-                    <div className="tk-dash-bars">
-                      {DASH_BARS.map((h, i) => (
-                        <i key={i} style={{ height: `${h}%` }} />
-                      ))}
-                    </div>
-                  </div>
-                  <div className="tk-dash-feed">
-                    <span className="tk-dash-label">Assistant feed</span>
-                    <ul>
-                      <li>
-                        <i className="tk-dash-dot" />
-                        <span>Workflow <b>invoice-matching</b> completed</span>
-                        <em>2m</em>
-                      </li>
-                      <li>
-                        <i className="tk-dash-dot warn" />
-                        <span>Anomaly flagged in <b>sensor-04</b> readings</span>
-                        <em>14m</em>
-                      </li>
-                      <li>
-                        <i className="tk-dash-dot" />
-                        <span>Alert routed to <b>civic ops</b> channel</span>
-                        <em>31m</em>
-                      </li>
-                      <li>
-                        <i className="tk-dash-dot" />
-                        <span>Battery-health model retrained <b>nightly</b></span>
-                        <em>1h</em>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <figure className="tk-dash-visual">
+              <img
+                src="/images/techish-products-overview.jpg"
+                alt="Techish Innovations product overview — AI Employees, Civic Alert, EV Circular, and Skill-Based Networks dashboards"
+                loading="lazy"
+                onError={(e) => {
+                  e.currentTarget.style.display = "none";
+                }}
+              />
+            </figure>
           </Reveal>
         </div>
       </section>
