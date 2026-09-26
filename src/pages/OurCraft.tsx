@@ -43,7 +43,7 @@ const PRODUCT_IMAGES: Array<{
     tag: "EV",
   },
   {
-    image: "/images/product-skill-networks.jpg",
+    image: "/images/product-skill-networks.svg",
     name: "Skill-Based Networks",
     tag: "SKILLS",
   },
