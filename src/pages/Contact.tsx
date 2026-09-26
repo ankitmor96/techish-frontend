@@ -71,8 +71,13 @@ export default function Contact() {
             <h3>Contact Details</h3>
             <p className="contact-side-note">
               Email is the fastest channel — reach us directly at{" "}
-              {COMPANY_EMAIL} and we'll get back to you within one business
-              day.
+              <a
+                href={`mailto:${COMPANY_EMAIL}`}
+                style={{ color: "var(--tk-accent)" }}
+              >
+                {COMPANY_EMAIL}
+              </a>{" "}
+              and we'll get back to you within one business day.
             </p>
             <ul className="tk-comp-list good">
               {CONTACT_POINTS.map((point) => (
