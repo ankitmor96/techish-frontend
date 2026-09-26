@@ -179,16 +179,32 @@ export default function OurCraft() {
             description="A look at how our products think — applied AI, real-time signals, and human-readable insight, built into the same product practice."
           />
           <Reveal>
-            <figure className="tk-dash-visual">
-              <img
-                src="/images/techish-products-overview.jpg"
-                alt="Techish Innovations product overview — AI Employees, Civic Alert, EV Circular, and Skill-Based Networks dashboards"
-                loading="lazy"
-                onError={(e) => {
-                  e.currentTarget.style.display = "none";
-                }}
-              />
-            </figure>
+            <div className="tk-dash-visual">
+              <div className="tk-dash-visual-grid">
+                <figure>
+                  <img
+                    src="/images/techish-products-overview.jpg"
+                    alt="Techish Innovations product overview — AI Employees, Civic Alert, EV Circular, and Skill-Based Networks dashboards"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                  <figcaption>Four Products — One Product Practice</figcaption>
+                </figure>
+                <figure>
+                  <img
+                    src="/images/product-ev-battery.jpg"
+                    alt="EV Circular — the battery problem worth solving and the opportunity it creates"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                  <figcaption>From Real Problem to Real Product — EV Circular</figcaption>
+                </figure>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>
