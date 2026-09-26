@@ -12,18 +12,16 @@ export interface NavGroup {
 }
 
 export const SOFTWARE_LINKS: NavLink[] = [
-  { label: "Web Development", href: "/our-craft", tag: "WEB" },
-  { label: "Mobile Apps", href: "/our-craft", tag: "MOB" },
-  { label: "Custom Software", href: "/our-craft", tag: "SOFT" },
-  { label: "AI & Automation", href: "/our-craft", tag: "AI" },
-  { label: "Cloud & DevOps", href: "/our-craft", tag: "CLD" },
-  { label: "UI/UX Design", href: "/our-craft", tag: "UX" },
+  { label: "Web Development", href: "/products", tag: "WEB" },
+  { label: "Mobile Apps", href: "/products", tag: "MOB" },
+  { label: "Custom Software", href: "/products", tag: "SOFT" },
+  { label: "AI & Automation", href: "/products", tag: "AI" },
+  { label: "Cloud & DevOps", href: "/products", tag: "CLD" },
+  { label: "UI/UX Design", href: "/products", tag: "UX" },
 ];
 
 export const COMPANY_LINKS: NavLink[] = [
   { label: "About Us", href: "/about", tag: "ABOUT" },
-  { label: "Our Work", href: "/our-work", tag: "WORK" },
-  { label: "Blog", href: "/blog", tag: "BLOG" },
   { label: "Careers", href: "/careers", tag: "JOBS" },
 ];
 
@@ -31,6 +29,9 @@ export const NAV_GROUPS: NavGroup[] = [
   { label: "Software", items: SOFTWARE_LINKS },
   { label: "Company", items: COMPANY_LINKS },
 ];
+
+/** The company's official email address — single source of truth used across the site. */
+export const COMPANY_EMAIL = "careers@techishinnovation.com";
 
 export const HOME_MARQUEE: string[] = [
   "AI",
@@ -67,14 +68,6 @@ export const CAREERS_MARQUEE: string[] = [
   "Research & Build",
 ];
 
-export const WORK_MARQUEE: string[] = [
-  "Products, Not Projects",
-  "Problem-First",
-  "Built In-House",
-  "Long-Term Technology",
-  "Real-World Focus",
-];
-
 export const CRAFT_MARQUEE: string[] = [
   "AI Products",
   "Software Products",
@@ -88,6 +81,8 @@ export interface Service {
   icon: string;
   title: string;
   description: string;
+  /** Longer, product-specific copy shown inside the Explore modal. */
+  modal?: string;
   chips?: string[];
   cta?: string;
   href: string;
@@ -102,7 +97,9 @@ export const HOME_SERVICES: Service[] = [
       "AI systems that don't just answer questions — they understand your business, execute workflows, and help you make better decisions.",
     chips: ["AI Agents", "Automation", "Business Intelligence"],
     cta: "Explore AI Employee",
-    href: "/our-craft",
+    modal:
+      "AI systems that don't just answer questions — they understand the business, execute workflows end to end, and surface the right decision at the right time. Built to work alongside your team, not replace it.",
+    href: "/products",
   },
   {
     icon: "02",
@@ -111,7 +108,9 @@ export const HOME_SERVICES: Service[] = [
       "Intelligent infrastructure that helps cities communicate critical road, incident, and public-safety information with the people who need it.",
     chips: ["GovTech", "Geospatial", "Real-Time Alerts"],
     cta: "Explore Civic Alert",
-    href: "/our-craft",
+    modal:
+      "Intelligent infrastructure that helps cities communicate critical road, incident, and public-safety information with the people who need it — in real time, when it matters most.",
+    href: "/products",
   },
   {
     icon: "03",
@@ -120,7 +119,9 @@ export const HOME_SERVICES: Service[] = [
       "Building technology for the lifecycle of electric vehicles.",
     chips: ["Circular Economy", "EV Lifecycle", "Sustainability"],
     cta: "Explore EV Circular",
-    href: "/our-craft",
+    modal:
+      "Technology for the full lifecycle of electric vehicles — extending usable life, recovering value, and keeping EVs in circulation instead of landfill.",
+    href: "/products",
   },
   {
     icon: "04",
@@ -129,69 +130,9 @@ export const HOME_SERVICES: Service[] = [
       "Technology built around skill-based networks — one of the four opportunities our products are designed for.",
     chips: ["Skill-Based Networks", "Skills", "Emerging Technology"],
     cta: "Explore Skill-Based Networks",
-    href: "/our-craft",
-  },
-];
-
-/** Craft page disciplines — numbered, with chips */
-export const CRAFT_SERVICES: Service[] = [
-  {
-    icon: "01",
-    title: "AI Products",
-    description:
-      "AI-driven products and applied intelligence — systems that learn, reason, and act on real-world data.",
-    chips: [
-      "Applied AI",
-      "Intelligent Systems",
-      "Data-Driven",
-      "Automation",
-    ],
-    href: "/contact",
-  },
-  {
-    icon: "02",
-    title: "Software Products",
-    description:
-      "Web and mobile products designed, engineered, and shipped around specific real-world problems.",
-    chips: ["Web Products", "Mobile Products", "Platform Engineering", "Product Thinking"],
-    href: "/contact",
-  },
-  {
-    icon: "03",
-    title: "Emerging Technology",
-    description:
-      "Exploring and applying emerging technology where it can solve complex problems across business and industry.",
-    chips: [
-      "Applied Research",
-      "Prototyping",
-      "Emerging Tech",
-      "R&D",
-    ],
-    href: "/contact",
-  },
-  {
-    icon: "04",
-    title: "Business & Civic Infrastructure",
-    description:
-      "Technology that supports how organizations operate — from business systems to civic infrastructure.",
-    chips: ["Business Systems", "Civic Tech", "Operational Tools", "Reliability"],
-    href: "/contact",
-  },
-  {
-    icon: "05",
-    title: "Sustainability & Industry",
-    description:
-      "Products aimed at sustainability challenges and industrial problems where technology can make a measurable difference.",
-    chips: ["Sustainability", "Industrial Tech", "Efficiency", "Impact"],
-    href: "/contact",
-  },
-  {
-    icon: "06",
-    title: "Research & Build",
-    description:
-      "A repeatable product practice: research the problem, prototype the solution, build the product, iterate in the real world.",
-    chips: ["Research", "Prototyping", "Product Build", "Iteration"],
-    href: "/contact",
+    modal:
+      "Networks built around what people can actually do — connecting verified skills to real opportunities without the noise of traditional platforms.",
+    href: "/products",
   },
 ];
 
@@ -314,65 +255,6 @@ export const HOME_STATS: StatItem[] = [
   { value: "24h", label: "Average response time" },
 ];
 
-export const WORK_STATS: StatItem[] = [
-  { value: "4", label: "Focus domains: business, civic, sustainability, industry" },
-  { value: "1", label: "Mission: technology for real-world problems" },
-  { value: "100%", label: "Problem-first product approach" },
-  { value: "∞", label: "Curiosity for emerging technology" },
-];
-
-export const WORK_PROJECTS = [
-  { image: "/images/3.jpg", caption: "Web Platform", tag: "WEB" },
-  { image: "/images/7.jpg", caption: "Mobile App", tag: "MOB" },
-  { image: "/images/5.jpg", caption: "Product Demo", tag: "PROD" },
-] as const;
-
-export const WORK_INCLUSIONS = [
-  {
-    title: "Product, Not Project",
-    description:
-      "Every engagement is aimed at a product that lives beyond a launch date — long-term technology, not one-off deliverables.",
-  },
-  {
-    title: "Problem-First Scoping",
-    description:
-      "We start from the real-world problem, not a feature list — so the technology actually fits the problem it's meant to solve.",
-  },
-  {
-    title: "Research-Informed Build",
-    description:
-      "Prototypes and applied research de-risk the build before full production engineering begins.",
-  },
-  {
-    title: "Built for the Long Term",
-    description:
-      "Products are engineered to be maintained, extended, and trusted well beyond day one.",
-  },
-] as const;
-
-export const WORK_PORTFOLIO_POINTS = [
-  {
-    title: "Real Problems, Real Products",
-    description:
-      "Our work starts from real problems in business, civic infrastructure, sustainability, and industry — every product is scoped around a problem worth solving, not a generic template.",
-  },
-  {
-    title: "Product Thinking, End to End",
-    description:
-      "From the first research note to a shipped product, our work shows the full product lifecycle: problem definition, applied research, product engineering, and real-world iteration.",
-  },
-  {
-    title: "Built to Last, Not Just to Launch",
-    description:
-      "Clean architecture, thorough engineering, and long-term maintainability are the baseline — a product should outlive its launch week.",
-  },
-  {
-    title: "Technology With Purpose",
-    description:
-      "We build technology for real-world problems. If it doesn't solve something real, we don't build it — hype is not a product strategy.",
-  },
-] as const;
-
 export const ABOUT_JOURNEY = [
   {
     step: "The Start",
@@ -427,47 +309,6 @@ export const ABOUT_PRINCIPLES = [
   },
 ] as const;
 
-export const ABOUT_DAY_TO_DAY = [
-  {
-    title: "Research & Discovery",
-    description:
-      "We study real problems in their real context — talking to the domain before writing a line of code.",
-  },
-  {
-    title: "Prototype & Test",
-    description:
-      "Early prototypes validate whether technology can actually solve the problem before we commit to building it.",
-  },
-  {
-    title: "Build & Ship",
-    description:
-      "Production-grade engineering turns validated prototypes into real products.",
-  },
-  {
-    title: "Learn & Iterate",
-    description:
-      "Products keep improving after launch — real-world use tells us what to build next.",
-  },
-] as const;
-
-export const ABOUT_QUOTES = [
-  {
-    quote:
-      "We don't build technology and go looking for a problem. We find the problem first — then build the technology it deserves.",
-    cite: "Engineering Lead",
-  },
-  {
-    quote:
-      "A product is finished when it solves the problem in the real world — not when it looks finished in a demo.",
-    cite: "Product Lead",
-  },
-  {
-    quote:
-      "Research isn't a phase we skip. The time we spend understanding a problem is what makes the product work.",
-    cite: "Research Lead",
-  },
-] as const;
-
 export const ABOUT_SDE_POINTS = [
   {
     title: "Problem-First Product Development",
@@ -489,23 +330,6 @@ export const ABOUT_SDE_POINTS = [
     description:
       "We build products intended to last — maintained, improved, and extended over time as the problems they solve evolve.",
   },
-] as const;
-
-export const CRAFT_SKILLS = [
-  { name: "Frontend Engineering", pct: 95 },
-  { name: "Backend & API Design", pct: 96 },
-  { name: "Cloud & Infrastructure", pct: 90 },
-  { name: "Product & UI/UX Design", pct: 88 },
-  { name: "AI & Data Integration", pct: 85 },
-] as const;
-
-export const CRAFT_REPORT_LINES = [
-  "frontend_rigor ........ high",
-  "api_design ............ high",
-  "cloud_ops .............. high",
-  "product_ux ............ high",
-  "ai_integration ......... high",
-  "stack_depth ............ full",
 ] as const;
 
 export const CRAFT_STANDARDS = [
@@ -545,29 +369,6 @@ export const CRAFT_PITFALLS = {
     "Post-launch iteration driven by how the product is actually used",
   ],
 } as const;
-
-export const CRAFT_DELIVERY = [
-  {
-    title: "Research-Led Product Development",
-    description:
-      "Applied research and prototyping come before the build — so every product is grounded in a validated understanding of the problem.",
-  },
-  {
-    title: "One Product Team, Full Lifecycle",
-    description:
-      "Problem definition, product design, engineering, and real-world iteration — one team carries a product from idea to production.",
-  },
-  {
-    title: "Built for Real-World Conditions",
-    description:
-      "Products are engineered for reliability and maintainability in production — where real problems and real users live.",
-  },
-  {
-    title: "Technology Chosen for the Problem",
-    description:
-      "AI, software, or emerging tech — the technology follows the problem, never the other way around.",
-  },
-] as const;
 
 export const HOME_WHY = [
   {
@@ -842,111 +643,6 @@ export const CAREERS_POLICY_LINES = [
   "→ status .............. [equal opportunity employer]",
 ] as const;
 
-export interface BlogPost {
-  category: string;
-  date: string;
-  title: string;
-  excerpt: string;
-}
-
-export const BLOG_POSTS: BlogPost[] = [
-  {
-    category: "AI",
-    date: "Jan 08 2026",
-    title: "Building AI Products That Solve Real Problems",
-    excerpt:
-      "How we take AI from promising capability to working product — problem selection, applied research, and production engineering.",
-  },
-  {
-    category: "Product",
-    date: "Jan 15 2026",
-    title: "Products, Not Projects: Why We Build Technology We Own",
-    excerpt:
-      "The difference between shipping deliverables and creating long-term technology — and why we chose the product path.",
-  },
-  {
-    category: "Emerging Technology",
-    date: "Jan 22 2026",
-    title: "Evaluating Emerging Technology Without the Hype",
-    excerpt:
-      "A practical framework for deciding when new technology is ready to solve a real problem — and when it isn't.",
-  },
-  {
-    category: "Civic Infrastructure",
-    date: "Jan 29 2026",
-    title: "Technology for Civic Infrastructure: Where Software Meets the Real World",
-    excerpt:
-      "What it takes to build technology for public systems — reliability, constraints, and the problems worth solving.",
-  },
-  {
-    category: "Research",
-    date: "Feb 05 2026",
-    title: "Applied Research as a Product Superpower",
-    excerpt:
-      "How prototyping and applied research de-risk product decisions before full-scale engineering begins.",
-  },
-  {
-    category: "AI",
-    date: "Feb 12 2026",
-    title: "From Data to Decisions: Applied AI in Business",
-    excerpt:
-      "Turning complex operational data into decisions people actually act on — lessons from building AI products.",
-  },
-  {
-    category: "Sustainability",
-    date: "Feb 19 2026",
-    title: "Sustainability Problems Are Engineering Problems",
-    excerpt:
-      "Where technology genuinely moves the needle on environmental and resource challenges — and where it doesn't.",
-  },
-  {
-    category: "Product",
-    date: "Feb 26 2026",
-    title: "Choosing Problems Worth Solving",
-    excerpt:
-      "Problem selection is the highest-leverage decision in product development. How we evaluate what to build.",
-  },
-  {
-    category: "Industry",
-    date: "Mar 05 2026",
-    title: "Building for Industry: Software Meets the Factory Floor",
-    excerpt:
-      "Industrial environments punish fragile technology. What we've learned building for real-world conditions.",
-  },
-  {
-    category: "Engineering",
-    date: "Mar 12 2026",
-    title: "Engineering for the Long Term",
-    excerpt:
-      "Architecture, testing, and maintainability practices that keep a product alive well past launch day.",
-  },
-  {
-    category: "Emerging Technology",
-    date: "Mar 19 2026",
-    title: "From Prototype to Product: Crossing the Gap",
-    excerpt:
-      "Most prototypes never become products. The engineering and product decisions that bridge the gap.",
-  },
-  {
-    category: "Product",
-    date: "Mar 26 2026",
-    title: "What Problem-First Product Development Looks Like",
-    excerpt:
-      "A walkthrough of our product lifecycle: research, prototype, build, and iterate in the real world.",
-  },
-];
-
-export const BLOG_TOPICS = [
-  "AI",
-  "Product",
-  "Emerging Technology",
-  "Civic Infrastructure",
-  "Sustainability",
-  "Industry",
-  "Research",
-  "Engineering",
-] as const;
-
 export interface ContactChannel {
   title: string;
   description: string;
@@ -999,23 +695,3 @@ export const CONTACT_POINTS = [
   },
 ] as const;
 
-export const CONTACT_LOOKING = [
-  {
-    label: "Products",
-    title: "See Our Work",
-    description: "The technology we're building and the problems behind it.",
-    href: "/our-work",
-  },
-  {
-    label: "Insights",
-    title: "Read the Blog",
-    description: "Product, research, and technology perspectives from our team.",
-    href: "/blog",
-  },
-  {
-    label: "Team",
-    title: "View Careers",
-    description: "Open roles on our team.",
-    href: "/careers",
-  },
-] as const;

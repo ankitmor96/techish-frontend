@@ -1,104 +1,27 @@
-import { useEffect, useRef, useState } from "react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Marquee } from "@/components/site/Marquee";
 import { SectionHead } from "@/components/site/SectionHead";
-import { TerminalWindow, type TerminalLine } from "@/components/site/TerminalWindow";
 import { CTABand } from "@/components/site/CTABand";
 import { Reveal } from "@/components/site/Reveal";
 import {
   CRAFT_MARQUEE,
-  CRAFT_SERVICES,
-  CRAFT_SKILLS,
+  HOME_SERVICES,
   CRAFT_PROCESS,
   CRAFT_STANDARDS,
   CRAFT_PITFALLS,
-  CRAFT_DELIVERY,
+  COMPANY_EMAIL,
 } from "@/data/site";
 
-const CRAFT_IMAGES = [
-  { image: "/images/12.jpg", caption: "Design Workshop", tag: "DESIGN" },
-  { image: "/images/6.jpg", caption: "Engineering Review", tag: "ENG" },
-  { image: "/images/9.jpg", caption: "Collaboration", tag: "TEAM" },
+/** Product image band — wired to the 4 user-provided product images. */
+const PRODUCT_IMAGES = [
+  { image: "/images/product-1.jpg", name: "AI Employees" },
+  { image: "/images/product-2.jpg", name: "Civic Alert" },
+  { image: "/images/product-3.jpg", name: "EV Circular" },
+  { image: "/images/product-4.jpg", name: "Skill-Based Networks" },
 ] as const;
 
-const CAPABILITIES_LINES: TerminalLine[] = [
-  {
-    segments: [
-      { t: "plain", s: "frontend_rigor ........ " },
-      { t: "accent", s: "high" },
-    ],
-  },
-  {
-    segments: [
-      { t: "plain", s: "api_design ............ " },
-      { t: "accent", s: "high" },
-    ],
-  },
-  {
-    segments: [
-      { t: "plain", s: "cloud_ops .............. " },
-      { t: "accent", s: "high" },
-    ],
-  },
-  {
-    segments: [
-      { t: "plain", s: "product_ux ............ " },
-      { t: "accent", s: "high" },
-    ],
-  },
-  {
-    segments: [
-      { t: "plain", s: "ai_integration ......... " },
-      { t: "accent", s: "high" },
-    ],
-  },
-  {
-    segments: [
-      { t: "plain", s: "stack_depth ............ " },
-      { t: "accent", s: "full" },
-    ],
-  },
-  {
-    segments: [
-      { t: "plain", s: "→ status " },
-      { t: "accent", s: "[production-ready]" },
-    ],
-  },
-];
-
-/** Skill bar that animates to its target width when scrolled into view. */
-function SkillBar({ name, pct }: { name: string; pct: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const node = ref.current;
-    if (!node) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.4 },
-    );
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div className="tk-skill" ref={ref}>
-      <div className="tk-skill-top">
-        <b>{name}</b>
-        <span>{pct}%</span>
-      </div>
-      <div className="tk-skill-bar">
-        <i style={{ width: visible ? `${pct}%` : "0%" }} />
-      </div>
-    </div>
-  );
-}
+/** Static, product-engineering dashboard visual — pure CSS/SVG, no data. */
+const DASH_BARS = [62, 78, 45, 88, 56, 71, 39, 82] as const;
 
 export default function OurCraft() {
   return (
@@ -110,32 +33,32 @@ export default function OurCraft() {
           AI, Software &amp; Emerging Technology — <span>Built In-House</span>
         </h1>
         <p>
-          Six product focus areas, one team. Every product starts from a
-          real-world problem — in business, civic infrastructure,
-          sustainability, or industry.
+          Four products, one team. Every product starts from a real-world
+          problem — in business, civic infrastructure, sustainability, or
+          industry.
         </p>
       </header>
 
       <Marquee items={CRAFT_MARQUEE} />
 
-      {/* ============ INSIDE OUR PROCESS ============ */}
+      {/* ============ FROM WORKSHOP TO PRODUCTION ============ */}
       <section>
         <div className="tk-section-inner">
           <SectionHead
             eyebrow="Inside Our Process"
             title="From Workshop to Production"
           />
-          <div className="tk-imgband">
-            {CRAFT_IMAGES.map((item) => (
-              <figure key={item.caption}>
+          <div className="tk-product-grid">
+            {PRODUCT_IMAGES.map((item) => (
+              <figure key={item.name} className="tk-product-card">
                 <img
                   src={item.image}
-                  alt={`Techish Innovations team — ${item.caption}`}
+                  alt={`Techish Innovations product — ${item.name}`}
                   loading="lazy"
                 />
                 <figcaption>
-                  <span>{item.caption}</span>
-                  <em>{item.tag}</em>
+                  <span>{item.name}</span>
+                  <em>Techish</em>
                 </figcaption>
               </figure>
             ))}
@@ -143,53 +66,125 @@ export default function OurCraft() {
         </div>
       </section>
 
-      {/* ============ WHAT WE OFFER ============ */}
+      {/* ============ THE PRODUCTS ============ */}
       <section>
         <div className="tk-section-inner">
           <SectionHead
-            eyebrow="What We Build"
-            title="Six Focus Areas, One Product Team"
-            description="Every product draws on the same core capabilities — applied research, product engineering, and real-world iteration."
+            eyebrow="What We're Building"
+            title="The Techish Product Line"
+            description="Four products we design, engineer, and ship ourselves — each aimed at a problem worth solving."
           />
           <div className="tk-grid tk-grid-3">
-            {CRAFT_SERVICES.map((service) => (
+            {HOME_SERVICES.map((service) => (
               <Reveal key={service.title} className="tk-card">
                 <span className="tk-step">{service.icon}</span>
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
-                <div className="tk-chips">
-                  {service.chips?.map((chip) => (
-                    <span key={chip} className="tk-chip">
-                      {chip}
-                    </span>
-                  ))}
-                </div>
+                {service.chips && service.chips.length > 0 && (
+                  <div className="tk-chips">
+                    {service.chips.map((chip) => (
+                      <span key={chip} className="tk-chip">
+                        {chip}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                <a
+                  href={`mailto:${COMPANY_EMAIL}?subject=${encodeURIComponent(
+                    service.title,
+                  )}`}
+                  className="tk-arrowlink"
+                >
+                  Ask About {service.title}
+                </a>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ============ SKILL BARS + CAPABILITIES REPORT ============ */}
+      {/* ============ AI DASHBOARD VISUAL ============ */}
       <section>
-        <div className="tk-section-inner skills-grid">
-          <div>
-            <SectionHead
-              eyebrow="Where We're Strongest"
-              title="Depth Across the Product Lifecycle"
-              description="We don't specialize in a single layer. Our team carries deep, hands-on capability across every stage a real product needs — from research to production."
-            />
-            {CRAFT_SKILLS.map((skill) => (
-              <SkillBar key={skill.name} name={skill.name} pct={skill.pct} />
-            ))}
-          </div>
+        <div className="tk-section-inner">
+          <SectionHead
+            eyebrow="Product Engineering"
+            title="Intelligence, Engineered Into Every Product"
+            description="A look at how our products think — applied AI, real-time signals, and human-readable insight, built into the same product practice."
+          />
           <Reveal>
-            <TerminalWindow
-              title="capabilities.report"
-              lines={CAPABILITIES_LINES}
-              startDelay={300}
-              lineDelay={340}
-            />
+            <div className="tk-dash" role="img" aria-label="Illustrative AI product dashboard">
+              <div className="tk-dash-side">
+                <span className="tk-dash-mark">T</span>
+                <i className="tk-dash-ico on" />
+                <i className="tk-dash-ico" />
+                <i className="tk-dash-ico" />
+              </div>
+              <div className="tk-dash-main">
+                <div className="tk-dash-top">
+                  <b>Product Intelligence Overview</b>
+                  <span className="tk-dash-live">
+                    <i /> live
+                  </span>
+                </div>
+                <div className="tk-dash-kpis">
+                  <div className="tk-dash-kpi">
+                    <span>Signals processed</span>
+                    <b>1.2M</b>
+                    <em>+8.4%</em>
+                  </div>
+                  <div className="tk-dash-kpi">
+                    <span>Automations active</span>
+                    <b>312</b>
+                    <em>+12</em>
+                  </div>
+                  <div className="tk-dash-kpi">
+                    <span>Model confidence</span>
+                    <b>97.3%</b>
+                    <em>+0.6</em>
+                  </div>
+                  <div className="tk-dash-kpi">
+                    <span>Issues resolved</span>
+                    <b>1,904</b>
+                    <em>+34</em>
+                  </div>
+                </div>
+                <div className="tk-dash-body">
+                  <div className="tk-dash-chart">
+                    <span className="tk-dash-label">Signal activity</span>
+                    <div className="tk-dash-bars">
+                      {DASH_BARS.map((h, i) => (
+                        <i key={i} style={{ height: `${h}%` }} />
+                      ))}
+                    </div>
+                  </div>
+                  <div className="tk-dash-feed">
+                    <span className="tk-dash-label">Assistant feed</span>
+                    <ul>
+                      <li>
+                        <i className="tk-dash-dot" />
+                        <span>Workflow <b>invoice-matching</b> completed</span>
+                        <em>2m</em>
+                      </li>
+                      <li>
+                        <i className="tk-dash-dot warn" />
+                        <span>Anomaly flagged in <b>sensor-04</b> readings</span>
+                        <em>14m</em>
+                      </li>
+                      <li>
+                        <i className="tk-dash-dot" />
+                        <span>Alert routed to <b>civic ops</b> channel</span>
+                        <em>31m</em>
+                      </li>
+                      <li>
+                        <i className="tk-dash-dot" />
+                        <span>Battery-health model retrained <b>nightly</b></span>
+                        <em>1h</em>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>
@@ -258,33 +253,6 @@ export default function OurCraft() {
               </ul>
             </Reveal>
           </div>
-        </div>
-      </section>
-
-      {/* ============ HOW WE DELIVER ============ */}
-      <section>
-        <div className="tk-section-inner">
-          <SectionHead
-            eyebrow="How We Build"
-            title="Why Organizations Work With Techish Innovations"
-            description="Our approach goes beyond writing code — it's a disciplined product practice for technology that works in the real world, not just in a demo."
-          />
-          <div className="tk-grid tk-grid-2">
-            {CRAFT_DELIVERY.map((item) => (
-              <Reveal key={item.title} className="tk-card">
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal className="quote-wrap">
-            <blockquote className="tk-blockquote">
-              We don't chase trends. We choose the technology the problem
-              deserves, every single time — because a product has to outlive
-              whatever's fashionable this year.
-              <cite>— Product Principles</cite>
-            </blockquote>
-          </Reveal>
         </div>
       </section>
 

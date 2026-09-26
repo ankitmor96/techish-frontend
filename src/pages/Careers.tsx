@@ -15,12 +15,6 @@ import {
   CAREERS_CULTURE,
 } from "@/data/site";
 
-const CAREERS_IMAGES = [
-  { image: "/images/12.jpg", caption: "Team", tag: "ALL" },
-  { image: "/images/4.jpg", caption: "Focus", tag: "DEV" },
-  { image: "/images/2.jpg", caption: "Sync", tag: "MEET" },
-] as const;
-
 const POLICY_LINES: TerminalLine[] = [
   {
     segments: [
@@ -64,31 +58,6 @@ export default function Careers() {
       </header>
 
       <Marquee items={CAREERS_MARQUEE} />
-
-      {/* ============ MEET THE TEAM ============ */}
-      <section>
-        <div className="tk-section-inner">
-          <SectionHead
-            eyebrow="Meet the Team"
-            title="The People Behind the Product"
-          />
-          <div className="tk-imgband">
-            {CAREERS_IMAGES.map((item) => (
-              <figure key={item.caption}>
-                <img
-                  src={item.image}
-                  alt={`Life at Techish Innovations — ${item.caption}`}
-                  loading="lazy"
-                />
-                <figcaption>
-                  <span>{item.caption}</span>
-                  <em>{item.tag}</em>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ============ WHAT WE LOOK FOR ============ */}
       <section>

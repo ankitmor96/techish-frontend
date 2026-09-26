@@ -18,18 +18,16 @@ export function Footer() {
         <div className="tk-footer-col">
           <h4>Explore</h4>
           <Link to="/about">About Us</Link>
-          <Link to="/our-craft">Our Craft</Link>
-          <Link to="/our-work">Our Work</Link>
-          <Link to="/blog">Blog</Link>
+          <Link to="/products">Our Products</Link>
           <Link to="/careers">Careers</Link>
         </div>
 
         <div className="tk-footer-col">
           <h4>Products</h4>
-          <Link to="/our-craft">AI Products</Link>
-          <Link to="/our-craft">Software Products</Link>
-          <Link to="/our-craft">Emerging Technology</Link>
-          <Link to="/our-craft">Civic &amp; Industry</Link>
+          <Link to="/products">AI Employees</Link>
+          <Link to="/products">Civic Alert</Link>
+          <Link to="/products">EV Circular</Link>
+          <Link to="/products">Skill-Based Networks</Link>
         </div>
 
         <div className="tk-footer-col">

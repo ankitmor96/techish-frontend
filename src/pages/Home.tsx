@@ -1,9 +1,10 @@
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { X } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Marquee } from "@/components/site/Marquee";
 import { SectionHead } from "@/components/site/SectionHead";
-import { TerminalWindow, type TerminalLine } from "@/components/site/TerminalWindow";
 import { CTABand } from "@/components/site/CTABand";
 import { Reveal } from "@/components/site/Reveal";
 import {
@@ -16,71 +17,13 @@ import {
   ENGAGEMENTS,
   PARTNERSHIP,
   HOME_FAQS,
+  COMPANY_EMAIL,
+  type Service,
 } from "@/data/site";
 
-const WALKTHROUGH = [
-  { image: "/images/3.jpg", caption: "Platform Demo", tag: "WEB" },
-  { image: "/images/8.jpg", caption: "Collab Session", tag: "DEV" },
-  { image: "/images/5.jpg", caption: "Modern Dashboard", tag: "WEB" },
-] as const;
-
-const DEPLOY_LINES: TerminalLine[] = [
-  {
-    segments: [
-      { t: "plain", s: "$ " },
-      { t: "white", s: "techish deploy --env production" },
-    ],
-  },
-  {
-    segments: [
-      { t: "plain", s: "→ running build pipeline " },
-      { t: "accent", s: "[ok]" },
-    ],
-  },
-  {
-    segments: [
-      { t: "plain", s: "→ audit dependencies ......... " },
-      { t: "accent", s: "[ok]" },
-    ],
-  },
-  {
-    segments: [
-      { t: "plain", s: "→ unit tests ..................... " },
-      { t: "accent", s: "142 passed" },
-    ],
-  },
-  {
-    segments: [
-      { t: "plain", s: "→ security scan ................ " },
-      { t: "accent", s: "[ok]" },
-    ],
-  },
-  {
-    segments: [
-      { t: "plain", s: "→ architecture review .......... " },
-      { t: "accent", s: "[ok]" },
-    ],
-  },
-  {
-    segments: [
-      { t: "plain", s: "→ shipping to " },
-      { t: "white", s: "production" },
-      { t: "accent", s: " ✓ ready in 0:32" },
-    ],
-  },
-];
-
-const stagger = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.12 } },
-};
-
-const staggerItem = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" as const } },
-};
-
 export default function Home() {
+  const [activeProduct, setActiveProduct] = useState<Service | null>(null);
+
   return (
     <SiteLayout title="Techish Innovations — Building Products for Real-World Problems">
       {/* ============ HERO ============ */}
@@ -101,11 +44,11 @@ export default function Home() {
             problems at scale.
           </p>
           <div className="tk-hero-cta">
-            <Link to="/our-work" className="tk-pill solid">
-              View Our Work
+            <Link to="/products" className="tk-pill solid">
+              View Our Products
             </Link>
-            <Link to="/our-craft" className="tk-pill">
-              Explore Our Products
+            <Link to="/contact" className="tk-pill">
+              Start the Conversation
             </Link>
           </div>
         </motion.div>
@@ -127,50 +70,6 @@ export default function Home() {
 
       {/* ============ MARQUEE ============ */}
       <Marquee items={HOME_MARQUEE} />
-
-      {/* ============ PRODUCT WALKTHROUGH ============ */}
-      <section>
-        <div className="tk-section-inner">
-          <SectionHead
-            eyebrow="Product Walkthrough"
-            title="Products Built Across AI, Software & Emerging Technology"
-            description="Real products for real problems — researched, engineered, and shipped by our team."
-          />
-          <motion.div
-            className="tk-imgband"
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-60px" }}
-          >
-            {WALKTHROUGH.map((item) => (
-              <motion.figure key={item.caption} variants={staggerItem}>
-                <img
-                  src={item.image}
-                  alt={`Techish Innovations product preview — ${item.caption}`}
-                  loading="lazy"
-                />
-                <figcaption>
-                  <span>{item.caption}</span>
-                  <em>{item.tag}</em>
-                </figcaption>
-              </motion.figure>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ============ DEPLOY TERMINAL ============ */}
-      <section>
-        <div className="tk-section-inner window-wrap">
-          <TerminalWindow
-            title="deploy — techish-innovation"
-            lines={DEPLOY_LINES}
-            startDelay={300}
-            lineDelay={380}
-          />
-        </div>
-      </section>
 
       {/* ============ HOW WE WORK ============ */}
       <section>
@@ -215,9 +114,13 @@ export default function Home() {
                     ))}
                   </div>
                 )}
-                <Link to={service.href} className="tk-arrowlink">
+                <button
+                  type="button"
+                  className="tk-arrowlink"
+                  onClick={() => setActiveProduct(service)}
+                >
                   {service.cta ?? "Explore"}
-                </Link>
+                </button>
               </Reveal>
             ))}
           </div>
@@ -337,6 +240,94 @@ export default function Home() {
         description="Tell us about the real-world problem you're looking at — let's explore how technology could solve it."
         ctaLabel="Start the Conversation"
       />
+
+      {/* ============ PRODUCT MODAL ============ */}
+      <ProductModal
+        service={activeProduct}
+        onClose={() => setActiveProduct(null)}
+      />
     </SiteLayout>
+  );
+}
+
+/**
+ * Product detail modal opened from the "What We're Building" cards.
+ * Product-specific copy comes from `service.modal`; contact uses the company email.
+ */
+function ProductModal({
+  service,
+  onClose,
+}: {
+  service: Service | null;
+  onClose: () => void;
+}) {
+  const closeRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!service) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    closeRef.current?.focus();
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [service, onClose]);
+
+  return (
+    <AnimatePresence>
+      {service && (
+        <motion.div
+          className="tk-modal-overlay"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2, ease: "easeOut" }}
+          onClick={onClose}
+        >
+          <motion.div
+            className="tk-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="tk-modal-title"
+            initial={{ opacity: 0, y: 24, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 16, scale: 0.97 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              ref={closeRef}
+              type="button"
+              className="tk-modal-close"
+              aria-label="Close"
+              onClick={onClose}
+            >
+              <X className="size-4" />
+            </button>
+            <p className="tk-eyebrow">{service.icon} — Techish Innovations</p>
+            <h3 id="tk-modal-title">{service.title}</h3>
+            <p className="tk-modal-desc">{service.modal}</p>
+            <div className="tk-modal-contact">
+              <p className="tk-eyebrow">Get in Touch</p>
+              <a className="tk-modal-email" href={`mailto:${COMPANY_EMAIL}`}>
+                {COMPANY_EMAIL}
+              </a>
+              <a
+                className="tk-pill solid"
+                href={`mailto:${COMPANY_EMAIL}?subject=${encodeURIComponent(
+                  service.title,
+                )}`}
+              >
+                Email Us About {service.title}
+              </a>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }

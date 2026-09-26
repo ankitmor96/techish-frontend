@@ -9,8 +9,6 @@ import "./index.css";
 const Home = lazy(() => import("./pages/Home.tsx"));
 const OurCraft = lazy(() => import("./pages/OurCraft.tsx"));
 const About = lazy(() => import("./pages/About.tsx"));
-const OurWork = lazy(() => import("./pages/OurWork.tsx"));
-const Blog = lazy(() => import("./pages/Blog.tsx"));
 const Careers = lazy(() => import("./pages/Careers.tsx"));
 const Contact = lazy(() => import("./pages/Contact.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
@@ -114,10 +112,8 @@ createRoot(document.getElementById("root")!).render(
         <Suspense fallback={<RouteLoading />}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/our-craft" element={<OurCraft />} />
+            <Route path="/products" element={<OurCraft />} />
             <Route path="/about" element={<About />} />
-            <Route path="/our-work" element={<OurWork />} />
-            <Route path="/blog" element={<Blog />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />

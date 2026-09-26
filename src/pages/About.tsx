@@ -7,22 +7,8 @@ import {
   ABOUT_MARQUEE,
   ABOUT_JOURNEY,
   ABOUT_PRINCIPLES,
-  ABOUT_DAY_TO_DAY,
-  ABOUT_QUOTES,
   ABOUT_SDE_POINTS,
 } from "@/data/site";
-
-const ABOUT_IMAGES = [
-  { image: "/images/10.jpg", caption: "The Team at Work", tag: "TEAM" },
-  { image: "/images/2.jpg", caption: "Working Session", tag: "DEV" },
-  { image: "/images/1.jpg", caption: "Collab", tag: "PROD" },
-] as const;
-
-const FOCUS_IMAGES = [
-  { image: "/images/14.jpg", caption: "Deep Work", tag: "FOCUS" },
-  { image: "/images/6.jpg", caption: "Cross-Functional", tag: "TEAM" },
-  { image: "/images/9.jpg", caption: "Review", tag: "QA" },
-] as const;
 
 export default function About() {
   return (
@@ -68,31 +54,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* ============ LIFE AT TECHISH ============ */}
-      <section>
-        <div className="tk-section-inner">
-          <SectionHead
-            eyebrow="Life at Techish Innovations"
-            title="Small Team. Real Products."
-          />
-          <div className="tk-imgband">
-            {ABOUT_IMAGES.map((item) => (
-              <figure key={item.caption}>
-                <img
-                  src={item.image}
-                  alt={`Life at Techish Innovations — ${item.caption}`}
-                  loading="lazy"
-                />
-                <figcaption>
-                  <span>{item.caption}</span>
-                  <em>{item.tag}</em>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ============ OUR JOURNEY ============ */}
       <section>
         <div className="tk-section-inner">
@@ -132,35 +93,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* ============ DAY TO DAY ============ */}
-      <section>
-        <div className="tk-section-inner">
-          <SectionHead
-            eyebrow="Day to Day"
-            title="How We Actually Build Products"
-            description="Research, prototype, build, iterate — a product practice that starts with the problem and ends in the real world."
-          />
-          <div className="tk-grid tk-grid-4">
-            {ABOUT_DAY_TO_DAY.map((item) => (
-              <Reveal key={item.title} className="tk-card">
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </Reveal>
-            ))}
-          </div>
-          <div className="quote-wrap quotes-grid">
-            {ABOUT_QUOTES.map((item) => (
-              <Reveal key={item.cite}>
-                <blockquote className="tk-blockquote">
-                  {item.quote}
-                  <cite>— {item.cite}</cite>
-                </blockquote>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ============ SOFTWARE DEVELOPMENT COMPANY ============ */}
       <section>
         <div className="tk-section-inner">
@@ -175,21 +107,6 @@ export default function About() {
                 <h3>{point.title}</h3>
                 <p>{point.description}</p>
               </Reveal>
-            ))}
-          </div>
-          <div className="tk-imgband" style={{ marginTop: 48 }}>
-            {FOCUS_IMAGES.map((item) => (
-              <figure key={item.caption}>
-                <img
-                  src={item.image}
-                  alt={`How we work — ${item.caption}`}
-                  loading="lazy"
-                />
-                <figcaption>
-                  <span>{item.caption}</span>
-                  <em>{item.tag}</em>
-                </figcaption>
-              </figure>
             ))}
           </div>
         </div>

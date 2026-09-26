@@ -56,8 +56,8 @@ function NavDropdown({ label, items, active }: NavDropdownProps) {
 }
 
 /**
- * Sticky top navigation with hover dropdowns (Products / Company), a mobile
- * hamburger slide-down menu, and the "Start a Conversation" CTA.
+ * Sticky top navigation with a Company hover dropdown, a direct Products link,
+ * a mobile hamburger slide-down menu, and the "Start a Conversation" CTA.
  */
 export function Navbar() {
   const { pathname } = useLocation();
@@ -95,11 +95,12 @@ export function Navbar() {
             >
               Home
             </Link>
-            <NavDropdown
-              label="Products"
-              active={pathname === "/our-craft"}
-              items={SOFTWARE_ITEMS}
-            />
+            <Link
+              to="/products"
+              className={pathname === "/products" ? "tk-active" : ""}
+            >
+              Products
+            </Link>
             <NavDropdown
               label="Company"
               active={COMPANY_PATHS.includes(pathname)}
@@ -136,14 +137,7 @@ export function Navbar() {
         aria-hidden={!mobileOpen}
       >
         <Link to="/">Home</Link>
-        <div className="tk-m-group">
-          <b>Products</b>
-          {SOFTWARE_ITEMS.map((item) => (
-            <Link key={item.label} to={item.href}>
-              {item.label} <small>{item.tag}</small>
-            </Link>
-          ))}
-        </div>
+        <Link to="/products">Products</Link>
         <div className="tk-m-group">
           <b>Company</b>
           {COMPANY_ITEMS.map((item) => (
@@ -158,20 +152,9 @@ export function Navbar() {
   );
 }
 
-const SOFTWARE_ITEMS: DropdownItem[] = [
-  { label: "AI Products", href: "/our-craft", tag: "AI" },
-  { label: "Software Products", href: "/our-craft", tag: "SOFT" },
-  { label: "Emerging Technology", href: "/our-craft", tag: "EMT" },
-  { label: "Civic Infrastructure", href: "/our-craft", tag: "CIV" },
-  { label: "Sustainability", href: "/our-craft", tag: "SUS" },
-  { label: "Industry", href: "/our-craft", tag: "IND" },
-];
-
 const COMPANY_ITEMS: DropdownItem[] = [
   { label: "About Us", href: "/about", tag: "ABOUT" },
-  { label: "Our Work", href: "/our-work", tag: "WORK" },
-  { label: "Blog", href: "/blog", tag: "BLOG" },
   { label: "Careers", href: "/careers", tag: "JOBS" },
 ];
 
-const COMPANY_PATHS = ["/about", "/our-work", "/blog", "/careers"];
+const COMPANY_PATHS = ["/about", "/careers"];

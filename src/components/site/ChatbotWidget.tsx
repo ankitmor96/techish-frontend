@@ -23,7 +23,7 @@ const ANSWERS: Array<{
   {
     keywords: ["service", "offer", "build", "product", "web", "mobile", "ai", "tech"],
     text: "Techish Innovations is a technology product company. We build AI, software, and emerging technology products designed to solve complex problems across business, civic infrastructure, sustainability, and industry.",
-    link: { label: "Explore our products →", to: "/our-craft" },
+    link: { label: "Explore our products →", to: "/products" },
   },
   {
     keywords: ["problem", "focus", "domain", "industr", "civic", "sustain"],
@@ -38,7 +38,7 @@ const ANSWERS: Array<{
   {
     keywords: ["product", "platform", "roadmap"],
     text: "We build our own technology — AI, software, and emerging technology products, plus collaborations with organizations on shared problems.",
-    link: { label: "See our work →", to: "/our-work" },
+    link: { label: "See our products →", to: "/products" },
   },
   {
     keywords: ["job", "career", "apply", "hiring", "role", "open"],

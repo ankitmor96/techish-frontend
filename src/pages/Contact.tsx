@@ -1,53 +1,16 @@
-import { useState, type FormEvent } from "react";
-import { Link } from "react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Marquee } from "@/components/site/Marquee";
 import { SectionHead } from "@/components/site/SectionHead";
-import { TerminalWindow, type TerminalLine } from "@/components/site/TerminalWindow";
 import { Reveal } from "@/components/site/Reveal";
 import {
   CONTACT_MARQUEE,
   CONTACT_PROCESS,
   CONTACT_CHANNELS,
   CONTACT_POINTS,
-  CONTACT_LOOKING,
+  COMPANY_EMAIL,
 } from "@/data/site";
 
-const SENT_LINES: TerminalLine[] = [
-  {
-    segments: [
-      { t: "plain", s: "$ " },
-      { t: "white", s: "techish message --send" },
-    ],
-  },
-  {
-    segments: [
-      { t: "plain", s: "→ received ............. " },
-      { t: "accent", s: "[ok]" },
-    ],
-  },
-  {
-    segments: [
-      { t: "plain", s: "→ response time ........ " },
-      { t: "accent", s: "[within 24h]" },
-    ],
-  },
-  {
-    segments: [
-      { t: "plain", s: "→ status ................ " },
-      { t: "accent", s: "✓ we'll be in touch" },
-    ],
-  },
-];
-
 export default function Contact() {
-  const [sent, setSent] = useState(false);
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSent(true);
-  };
-
   return (
     <SiteLayout title="Contact Us — Techish Innovations">
       {/* ============ PAGE HERO ============ */}
@@ -64,7 +27,7 @@ export default function Contact() {
 
       <Marquee items={CONTACT_MARQUEE} />
 
-      {/* ============ FORM + DETAILS ============ */}
+      {/* ============ EMAIL + DETAILS ============ */}
       <section>
         <div className="tk-section-inner contact-grid">
           <Reveal>
@@ -73,90 +36,33 @@ export default function Contact() {
                 <span className="tk-dot r" />
                 <span className="tk-dot y" />
                 <span className="tk-dot g" />
-                <span>Send Us a Message</span>
+                <span>Contact Techish Innovations</span>
               </div>
               <div className="contact-form-body">
-                {sent ? (
-                  <>
-                    <p className="tk-eyebrow">message — sent</p>
-                    <TerminalWindow
-                      title="message — sent"
-                      lines={SENT_LINES}
-                      startDelay={150}
-                      lineDelay={320}
-                    />
-                    <p className="contact-afternote">
-                      Thanks for reaching out — a real engineer reviews every
-                      message. Expect a reply within one business day.
-                    </p>
-                  </>
-                ) : (
-                  <>
-                    <p className="contact-form-lead">
-                      Fill out the form and we'll be in touch shortly. Replies
-                      within 24h. No spam, ever. We only use this to reply to
-                      your inquiry.
-                    </p>
-                    <form className="tk-form" onSubmit={handleSubmit}>
-                      <div className="tk-form-row">
-                        <div className="tk-field">
-                          <label htmlFor="name">Name</label>
-                          <input
-                            id="name"
-                            name="name"
-                            required
-                            placeholder="Jane Doe"
-                          />
-                        </div>
-                        <div className="tk-field">
-                          <label htmlFor="email">Email</label>
-                          <input
-                            id="email"
-                            name="email"
-                            type="email"
-                            required
-                            placeholder="jane@company.com"
-                          />
-                        </div>
-                      </div>
-                      <div className="tk-form-row">
-                        <div className="tk-field">
-                          <label htmlFor="company">Company</label>
-                          <input
-                            id="company"
-                            name="company"
-                            placeholder="Company Inc."
-                          />
-                        </div>
-                        <div className="tk-field">
-                          <label htmlFor="budget">Budget Range</label>
-                          <select id="budget" name="budget" defaultValue="">
-                            <option value="" disabled>
-                              Select a range
-                            </option>
-                            <option>Under $10k</option>
-                            <option>$10k – $50k</option>
-                            <option>$50k – $150k</option>
-                            <option>$150k+</option>
-                            <option>Not sure yet</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div className="tk-field">
-                        <label htmlFor="message">Project Details</label>
-                        <textarea
-                          id="message"
-                          name="message"
-                          required
-                          placeholder="Tell us what you're building, your timeline, and any constraints…"
-                        />
-                      </div>
-                      <button type="submit" className="tk-pill solid">
-                        Send Message
-                      </button>
-                    </form>
-                  </>
-                )}
+                <p className="tk-eyebrow">email — direct</p>
+                <p className="contact-form-lead">
+                  The fastest way to reach us is by email. Tell us the
+                  real-world problem you're looking at — a real engineer reads
+                  every message, and we reply within one business day.
+                </p>
+                <a
+                  className="tk-window-email"
+                  href={`mailto:${COMPANY_EMAIL}`}
+                >
+                  {COMPANY_EMAIL}
+                </a>
+                <a
+                  className="tk-pill solid"
+                  href={`mailto:${COMPANY_EMAIL}?subject=${encodeURIComponent(
+                    "Problem worth solving",
+                  )}`}
+                >
+                  Email Us
+                </a>
+                <p className="contact-afternote">
+                  No forms, no spam — your message goes straight to the team
+                  building the products.
+                </p>
               </div>
             </div>
           </Reveal>
@@ -164,8 +70,9 @@ export default function Contact() {
           <div className="contact-side">
             <h3>Contact Details</h3>
             <p className="contact-side-note">
-              Prefer a different channel? Contact details are being updated —
-              please use the message form and we'll get back to you shortly.
+              Email is the fastest channel — reach us directly at{" "}
+              {COMPANY_EMAIL} and we'll get back to you within one business
+              day.
             </p>
             <ul className="tk-comp-list good">
               {CONTACT_POINTS.map((point) => (
@@ -213,28 +120,6 @@ export default function Contact() {
                 <h3>{channel.title}</h3>
                 <p>{channel.description}</p>
                 {channel.tag && <span className="tk-step">{channel.tag}</span>}
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ============ OTHER PLACES ============ */}
-      <section>
-        <div className="tk-section-inner">
-          <SectionHead
-            eyebrow="Looking for Something Else?"
-            title="A Few Other Places to Look"
-          />
-          <div className="tk-grid tk-grid-3">
-            {CONTACT_LOOKING.map((item) => (
-              <Reveal key={item.title} className="tk-card">
-                <span className="tk-step">{item.label}</span>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-                <Link to={item.href} className="tk-arrowlink">
-                  Explore
-                </Link>
               </Reveal>
             ))}
           </div>
