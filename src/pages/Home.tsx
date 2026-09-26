@@ -23,6 +23,36 @@ import {
 
 export default function Home() {
   const [activeProduct, setActiveProduct] = useState<Service | null>(null);
+  const hoverTimer = useRef<number | null>(null);
+
+  // Open the popup immediately (click / keyboard focus)
+  const openProduct = (service: Service) => {
+    if (hoverTimer.current) {
+      window.clearTimeout(hoverTimer.current);
+      hoverTimer.current = null;
+    }
+    setActiveProduct(service);
+  };
+
+  // Open the same popup after a short hover delay
+  const scheduleProductOpen = (service: Service) => {
+    if (hoverTimer.current) window.clearTimeout(hoverTimer.current);
+    hoverTimer.current = window.setTimeout(() => {
+      hoverTimer.current = null;
+      setActiveProduct(service);
+    }, 300);
+  };
+
+  const cancelScheduledOpen = () => {
+    if (hoverTimer.current) {
+      window.clearTimeout(hoverTimer.current);
+      hoverTimer.current = null;
+    }
+  };
+
+  useEffect(() => {
+    return () => cancelScheduledOpen();
+  }, []);
 
   return (
     <SiteLayout title="Techish Innovations — Building Products for Real-World Problems">
@@ -117,7 +147,10 @@ export default function Home() {
                 <button
                   type="button"
                   className="tk-arrowlink"
-                  onClick={() => setActiveProduct(service)}
+                  onMouseEnter={() => scheduleProductOpen(service)}
+                  onMouseLeave={cancelScheduledOpen}
+                  onFocus={() => openProduct(service)}
+                  onClick={() => openProduct(service)}
                 >
                   {service.cta ?? "Explore"}
                 </button>
@@ -311,6 +344,15 @@ function ProductModal({
             <p className="tk-eyebrow">{service.icon} — Techish Innovations</p>
             <h3 id="tk-modal-title">{service.title}</h3>
             <p className="tk-modal-desc">{service.modal}</p>
+            {service.chips && service.chips.length > 0 && (
+              <div className="tk-chips">
+                {service.chips.map((chip) => (
+                  <span key={chip} className="tk-chip">
+                    {chip}
+                  </span>
+                ))}
+              </div>
+            )}
             <div className="tk-modal-contact">
               <p className="tk-eyebrow">Get in Touch</p>
               <a className="tk-modal-email" href={`mailto:${COMPANY_EMAIL}`}>
