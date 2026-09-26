@@ -1,0 +1,220 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1500" viewBox="0 0 1200 1500" role="img" aria-label="Techish EV Circular — battery ecosystem dashboard">
+  <defs>
+    <radialGradient id="bgE" cx="50%" cy="36%" r="80%">
+      <stop offset="0%" stop-color="#121614"/>
+      <stop offset="55%" stop-color="#0e1210"/>
+      <stop offset="100%" stop-color="#0a0c0b"/>
+    </radialGradient>
+    <linearGradient id="flow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#0e7490" stop-opacity="0.55"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1500" fill="url(#bgE)"/>
+  <g stroke="#ffffff" stroke-opacity="0.04">
+    <line x1="0" y1="375" x2="1200" y2="375"/>
+    <line x1="0" y1="750" x2="1200" y2="750"/>
+    <line x1="0" y1="1125" x2="1200" y2="1125"/>
+  </g>
+  <text x="1120" y="150" text-anchor="end" font-family="'JetBrains Mono',Menlo,Consolas,monospace" font-size="120" font-weight="700" fill="#151a17">03</text>
+  <text x="70" y="92" font-family="'JetBrains Mono',Menlo,Consolas,monospace" font-size="19" letter-spacing="5" fill="#6b7280">TECHISH INNOVATIONS — PRODUCT 03</text>
+
+  <!-- laptop -->
+  <ellipse cx="600" cy="936" rx="540" ry="34" fill="#000000" opacity="0.5"/>
+  <rect x="70" y="170" width="1060" height="680" rx="20" fill="#060607" stroke="#26262b" stroke-width="2"/>
+  <rect x="86" y="186" width="1028" height="648" rx="10" fill="#0d0f0e"/>
+  <rect x="36" y="868" width="1128" height="28" rx="14" fill="#101013" stroke="#26262b"/>
+  <rect x="524" y="868" width="152" height="12" rx="6" fill="#060607"/>
+
+  <!-- sidebar -->
+  <rect x="86" y="186" width="200" height="648" fill="#101312"/>
+  <line x1="286" y1="186" x2="286" y2="834" stroke="#1d211f"/>
+  <text x="108" y="234" font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="24" font-weight="800" fill="#ffffff">Techish</text>
+  <text x="108" y="258" font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="13" fill="#4ade80">EV Circular</text>
+  <g font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="13.5">
+    <rect x="100" y="282" width="174" height="40" rx="10" fill="#14251c" stroke="#1e4d33"/>
+    <rect x="112" y="295" width="14" height="14" rx="4" fill="#22c55e"/>
+    <text x="138" y="308" fill="#ffffff">Dashboard</text>
+    <g fill="none" stroke="#3d443f" stroke-width="1.6">
+      <rect x="112" y="339" width="14" height="14" rx="4"/><rect x="112" y="383" width="14" height="14" rx="4"/><rect x="112" y="427" width="14" height="14" rx="4"/><rect x="112" y="471" width="14" height="14" rx="4"/><rect x="112" y="515" width="14" height="14" rx="4"/><rect x="112" y="559" width="14" height="14" rx="4"/><rect x="112" y="603" width="14" height="14" rx="4"/><rect x="112" y="647" width="14" height="14" rx="4"/>
+    </g>
+    <g fill="#9aa39c">
+      <text x="138" y="352">Collection</text>
+      <text x="138" y="396">Diagnostics</text>
+      <text x="138" y="440">Second Life</text>
+      <text x="138" y="484">Recycling</text>
+      <text x="138" y="528">Materials</text>
+      <text x="138" y="572">Traceability</text>
+      <text x="138" y="616">Report &amp; Analytics</text>
+      <text x="138" y="660">Partners</text>
+    </g>
+  </g>
+
+  <!-- topbar -->
+  <rect x="312" y="202" width="360" height="34" rx="17" fill="#151816" stroke="#232825"/>
+  <text x="354" y="224" font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="12.5" fill="#6b7280">Search batteries, vehicles, partners...</text>
+  <rect x="840" y="200" width="104" height="38" rx="10" fill="#151816" stroke="#232825"/>
+  <circle cx="862" cy="219" r="6" fill="none" stroke="#4ade80" stroke-width="1.6"/>
+  <text x="878" y="224" font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="12" fill="#9ca3af">India</text>
+  <rect x="1052" y="204" width="48" height="30" rx="15" fill="#14251c" stroke="#1e4d33"/>
+  <text x="1076" y="224" text-anchor="middle" font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="11.5" font-weight="700" fill="#4ade80">A</text>
+
+  <!-- header -->
+  <text x="312" y="308" font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="25" font-weight="800" fill="#ffffff">EV Battery Circular Ecosystem</text>
+  <text x="312" y="333" font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="13" fill="#9ca3af">From Collection to New Possibilities</text>
+  <rect x="926" y="282" width="148" height="34" rx="9" fill="#22c55e"/>
+  <text x="1000" y="304" text-anchor="middle" font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="12.5" font-weight="700" fill="#08130c">+ Register Battery</text>
+
+  <!-- lifecycle strip -->
+  <rect x="312" y="350" width="596" height="56" rx="12" fill="#111413" stroke="#232825"/>
+  <g font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="10.5" fill="#c7cfc9" text-anchor="middle">
+    <g><circle cx="360" cy="374" r="11" fill="none" stroke="#4ade80" stroke-width="1.6"/><text x="360" y="398">Collection</text></g>
+    <path d="M400 374 L428 374" stroke="#2f3a33" stroke-width="1.6"/><path d="M424 370 L432 374 L424 378" fill="none" stroke="#2f3a33" stroke-width="1.6"/>
+    <g><circle cx="462" cy="374" r="11" fill="none" stroke="#4ade80" stroke-width="1.6"/><text x="462" y="398">Diagnostics</text></g>
+    <path d="M502 374 L530 374" stroke="#2f3a33" stroke-width="1.6"/><path d="M526 370 L534 374 L526 378" fill="none" stroke="#2f3a33" stroke-width="1.6"/>
+    <g><circle cx="564" cy="374" r="11" fill="none" stroke="#4ade80" stroke-width="1.6"/><text x="564" y="398">Second Life</text></g>
+    <path d="M604 374 L632 374" stroke="#2f3a33" stroke-width="1.6"/><path d="M628 370 L636 374 L628 378" fill="none" stroke="#2f3a33" stroke-width="1.6"/>
+    <g><circle cx="666" cy="374" r="11" fill="none" stroke="#4ade80" stroke-width="1.6"/><text x="666" y="398">Recycling</text></g>
+    <path d="M706 374 L734 374" stroke="#2f3a33" stroke-width="1.6"/><path d="M730 370 L738 374 L730 378" fill="none" stroke="#2f3a33" stroke-width="1.6"/>
+    <g><circle cx="768" cy="374" r="11" fill="none" stroke="#4ade80" stroke-width="1.6"/><text x="768" y="398">Recovered</text></g>
+    <path d="M808 374 L836 374" stroke="#2f3a33" stroke-width="1.6"/><path d="M832 370 L840 374 L832 378" fill="none" stroke="#2f3a33" stroke-width="1.6"/>
+    <g><circle cx="866" cy="374" r="11" fill="none" stroke="#4ade80" stroke-width="1.6"/><text x="866" y="398">New Battery</text></g>
+  </g>
+
+  <!-- stat cards -->
+  <g font-family="Inter,'Segoe UI',system-ui,sans-serif">
+    <g>
+      <rect x="926" y="350" width="188" height="56" rx="12" fill="#111413" stroke="#232825"/>
+      <text x="942" y="374" font-size="10.5" fill="#9ca3af">Total Batteries</text>
+      <text x="942" y="396" font-size="19" font-weight="800" fill="#ffffff">2,418</text>
+      <text x="1100" y="396" text-anchor="end" font-size="10.5" fill="#4ade80">↑ 18%</text>
+    </g>
+    <g>
+      <rect x="312" y="424" width="188" height="88" rx="12" fill="#111413" stroke="#232825"/>
+      <text x="328" y="448" font-size="10.5" fill="#9ca3af">In Diagnostics</text>
+      <text x="328" y="478" font-size="24" font-weight="800" fill="#ffffff">612</text>
+      <text x="328" y="498" font-size="10.5" fill="#4ade80">↑ 12%</text>
+      <rect x="440" y="442" width="42" height="26" rx="8" fill="#14251c"/>
+      <path d="M448 455 L455 455 L459 448 L463 462 L468 451 L476 451" fill="none" stroke="#4ade80" stroke-width="1.8"/>
+    </g>
+    <g>
+      <rect x="512" y="424" width="188" height="88" rx="12" fill="#111413" stroke="#232825"/>
+      <text x="528" y="448" font-size="10.5" fill="#9ca3af">Second Life</text>
+      <text x="528" y="478" font-size="24" font-weight="800" fill="#ffffff">846</text>
+      <text x="528" y="498" font-size="10.5" fill="#4ade80">↑ 25%</text>
+      <path d="M656 452 a14 14 0 1 0 4 20 M660 446 L660 458 L648 458" fill="none" stroke="#4ade80" stroke-width="1.8"/>
+    </g>
+    <g>
+      <rect x="712" y="424" width="188" height="88" rx="12" fill="#111413" stroke="#232825"/>
+      <text x="728" y="448" font-size="10.5" fill="#9ca3af">Recycled</text>
+      <text x="728" y="478" font-size="24" font-weight="800" fill="#ffffff">720</text>
+      <text x="728" y="498" font-size="10.5" fill="#4ade80">↑ 30%</text>
+      <g stroke="#4ade80" stroke-width="1.6" fill="none">
+        <path d="M856 452 l8 -12 8 12 M856 452 l-4 8 M864 452 l4 8 M872 452 l-8 -12"/>
+        <path d="M848 464 a14 8 0 0 0 28 0"/>
+      </g>
+    </g>
+    <g>
+      <rect x="912" y="424" width="202" height="88" rx="12" fill="#111413" stroke="#232825"/>
+      <text x="928" y="448" font-size="10.5" fill="#9ca3af">Materials Recovered</text>
+      <text x="928" y="478" font-size="24" font-weight="800" fill="#ffffff">18.4 Tons</text>
+      <text x="928" y="498" font-size="10.5" fill="#4ade80">↑ 22%</text>
+    </g>
+  </g>
+
+  <!-- battery flow -->
+  <rect x="312" y="530" width="500" height="284" rx="14" fill="#111413" stroke="#232825"/>
+  <text x="332" y="560" font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="14.5" font-weight="700" fill="#ffffff">Battery Flow Overview</text>
+  <rect x="686" y="544" width="106" height="24" rx="8" fill="#171b19" stroke="#232825"/>
+  <text x="739" y="560" text-anchor="middle" font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="10.5" fill="#9ca3af">This Month ▾</text>
+  <g font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="11" fill="#c7cfc9">
+    <text x="332" y="626" font-size="10.5" fill="#9ca3af">Incoming</text>
+    <text x="332" y="642" font-size="10.5" fill="#9ca3af">Batteries</text>
+    <text x="332" y="660" font-size="12" font-weight="700" fill="#ffffff">2,418</text>
+    <path d="M400 600 C470 600 470 616 540 616 L540 640 L400 640 Z" fill="url(#flow)" opacity="0.75"/>
+    <text x="552" y="624" font-weight="600">Diagnostics</text><text x="552" y="638" fill="#8b958e">612</text>
+    <path d="M400 646 C470 646 470 662 540 662 L540 686 L400 686 Z" fill="#22c55e" opacity="0.65"/>
+    <text x="552" y="670" font-weight="600">Second Life</text><text x="552" y="684" fill="#8b958e">846</text>
+    <path d="M400 692 C480 692 480 708 560 708 L560 732 L400 732 Z" fill="#f59e0b" opacity="0.55"/>
+    <text x="572" y="716" font-weight="600">Recycling</text><text x="572" y="730" fill="#8b958e">720</text>
+    <path d="M400 738 C480 738 480 754 560 754 L560 778 L400 778 Z" fill="#4b5563" opacity="0.5"/>
+    <text x="572" y="762" font-weight="600">Others</text><text x="572" y="776" fill="#8b958e">240</text>
+  </g>
+
+  <!-- collection locations map -->
+  <rect x="828" y="530" width="286" height="284" rx="14" fill="#111413" stroke="#232825"/>
+  <text x="848" y="560" font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="14.5" font-weight="700" fill="#ffffff">Collection Locations</text>
+  <g font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="9.5">
+    <circle cx="1032" cy="590" r="4" fill="#22c55e"/><text x="1042" y="594" fill="#9ca3af">Collection Center</text>
+    <circle cx="1032" cy="608" r="4" fill="#3b82f6"/><text x="1042" y="612" fill="#9ca3af">Processing Unit</text>
+    <circle cx="1032" cy="626" r="4" fill="#f59e0b"/><text x="1042" y="630" fill="#9ca3af">Recycling Partner</text>
+  </g>
+  <rect x="848" y="644" width="246" height="150" rx="10" fill="#0d1a14" stroke="#1d2b22"/>
+  <g stroke="#1e3a2a" stroke-width="1" fill="none">
+    <path d="M848 680 L1094 680 M848 720 L1094 720 M848 760 L1094 760"/>
+    <path d="M900 644 L900 794 M960 644 L960 794 M1020 644 L1020 794"/>
+  </g>
+  <path d="M860 700 Q900 740 940 720 T1090 760" stroke="#1e4d33" stroke-width="1.6" fill="none"/>
+  <circle cx="930" cy="700" r="7" fill="#22c55e"/><circle cx="930" cy="700" r="12" fill="none" stroke="#22c55e" stroke-opacity="0.4"/>
+  <circle cx="1000" cy="740" r="5" fill="#3b82f6"/>
+  <circle cx="1050" cy="690" r="5" fill="#f59e0b"/>
+  <rect x="884" y="746" width="86" height="26" rx="7" fill="#101010"/>
+  <text x="927" y="763" text-anchor="middle" font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="11" font-weight="600" fill="#ffffff">Gujarat</text>
+
+  <!-- bottom row: donut + bars + impact -->
+  <rect x="312" y="832" width="0" height="0"/>
+  <g font-family="Inter,'Segoe UI',system-ui,sans-serif">
+    <rect x="926" y="596" width="0" height="0"/>
+    <g transform="translate(430 980)">
+      <circle r="44" fill="none" stroke="#22c55e" stroke-width="18" stroke-dasharray="171 276" transform="rotate(-90)"/>
+      <circle r="44" fill="none" stroke="#f59e0b" stroke-width="18" stroke-dasharray="64 276" transform="rotate(125)"/>
+      <circle r="44" fill="none" stroke="#ef4444" stroke-width="18" stroke-dasharray="41 276" transform="rotate(208)"/>
+    </g>
+    <text x="430" y="910" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Battery Health</text>
+    <text x="430" y="928" text-anchor="middle" font-size="10" fill="#9ca3af">Good 62% · Mod 23% · Poor 15%</text>
+    <g fill="#9ca3af" font-size="9.5">
+      <rect x="352" y="1010" width="10" height="10" rx="3" fill="#22c55e"/><text x="368" y="1019">Good 62%</text>
+      <rect x="446" y="1010" width="10" height="10" rx="3" fill="#f59e0b"/><text x="462" y="1019">Moderate 23%</text>
+      <rect x="578" y="1010" width="10" height="10" rx="3" fill="#ef4444"/><text x="594" y="1019">Poor 15%</text>
+    </g>
+  </g>
+
+  <g font-family="Inter,'Segoe UI',system-ui,sans-serif">
+    <rect x="620" y="888" width="252" height="150" rx="14" fill="#111413" stroke="#232825"/>
+    <text x="640" y="918" font-size="13" font-weight="700" fill="#ffffff">Material Recovery (Tons)</text>
+    <g fill="#22c55e">
+      <rect x="660" y="960" width="22" height="56"/>
+      <rect x="700" y="972" width="22" height="44"/>
+      <rect x="740" y="952" width="22" height="64"/>
+      <rect x="780" y="978" width="22" height="38"/>
+      <rect x="820" y="988" width="22" height="28"/>
+    </g>
+    <g fill="#6b7280" font-size="8.5" text-anchor="middle">
+      <text x="671" y="1030">Li</text><text x="711" y="1030">Co</text><text x="751" y="1030">Ni</text><text x="791" y="1030">Mn</text><text x="831" y="1030">Cu</text>
+    </g>
+  </g>
+
+  <g font-family="Inter,'Segoe UI',system-ui,sans-serif">
+    <rect x="888" y="888" width="226" height="150" rx="14" fill="#111413" stroke="#232825"/>
+    <text x="908" y="918" font-size="13" font-weight="700" fill="#ffffff">Environmental Impact</text>
+    <g font-size="11">
+      <text x="908" y="946" font-weight="800" fill="#4ade80">18.4 Tons</text><text x="1004" y="946" fill="#8b958e">Materials Recovered</text>
+      <text x="908" y="974" font-weight="800" fill="#4ade80">42.6 Tons</text><text x="1004" y="974" fill="#8b958e">CO₂e Avoided</text>
+      <text x="908" y="1002" font-weight="800" fill="#4ade80">1,320</text><text x="1004" y="1002" fill="#8b958e">Trees Equivalent</text>
+    </g>
+    <g stroke="#22c55e" stroke-width="1.6" fill="none">
+      <path d="M914 1014 c0 -8 12 -8 12 0 c0 6 -12 8 -12 14 M920 1010 a6 6 0 1 1 0.1 0"/>
+      <path d="M968 1012 l-5 6 3 0 -3 6 8 -8 -4 0 3 -6 z" fill="#4ade80" stroke="none"/>
+    </g>
+  </g>
+
+  <!-- caption + watermark -->
+  <text x="600" y="1010" text-anchor="middle" font-family="'JetBrains Mono',Menlo,Consolas,monospace" font-size="14" letter-spacing="4" fill="#6b7280">FROM COLLECTION TO NEW POSSIBILITIES</text>
+  <text x="600" y="1190" text-anchor="middle" font-family="'JetBrains Mono',Menlo,Consolas,monospace" font-size="58" letter-spacing="14" fill="#111512">EV CIRCULAR</text>
+
+  <!-- brand strip -->
+  <rect x="0" y="1360" width="1200" height="140" fill="#0b0b0b"/>
+  <line x1="0" y1="1360" x2="1200" y2="1360" stroke="#222222"/>
+  <text x="70" y="1446" font-family="'JetBrains Mono',Menlo,Consolas,monospace" font-size="30" font-weight="700" letter-spacing="10" fill="#ffffff">TECHISH<tspan fill="#ff7a17">.</tspan></text>
+  <text x="1130" y="1446" text-anchor="end" font-family="'JetBrains Mono',Menlo,Consolas,monospace" font-size="18" letter-spacing="5" fill="#6b7280">EV BATTERY CIRCULARITY</text>
+</svg>

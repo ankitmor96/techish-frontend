@@ -28,17 +28,17 @@ const PRODUCT_IMAGES: Array<{
   tag: string;
 }> = [
   {
-    image: "/images/product-ai-employee.jpg",
+    image: "/images/product-ai-employee.svg",
     name: "AI Employees",
     tag: "AI",
   },
   {
-    image: "/images/product-civic-alert.jpg",
+    image: "/images/product-civic-alert.svg",
     name: "Civic Alert",
     tag: "CIVIC",
   },
   {
-    image: "/images/product-ev-circular.jpg",
+    image: "/images/product-ev-circular.svg",
     name: "EV Circular",
     tag: "EV",
   },
@@ -183,7 +183,7 @@ export default function OurCraft() {
               <div className="tk-dash-visual-grid">
                 <figure>
                   <img
-                    src="/images/techish-products-overview.jpg"
+                    src="/images/techish-products-overview.svg"
                     alt="Techish Innovations product overview — AI Employees, Civic Alert, EV Circular, and Skill-Based Networks dashboards"
                     loading="lazy"
                     onError={(e) => {
@@ -194,7 +194,7 @@ export default function OurCraft() {
                 </figure>
                 <figure>
                   <img
-                    src="/images/product-ev-battery.jpg"
+                    src="/images/product-ev-battery.svg"
                     alt="EV Circular — the battery problem worth solving and the opportunity it creates"
                     loading="lazy"
                     onError={(e) => {

@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1500" viewBox="0 0 1200 1500" role="img" aria-label="Techish AI Employee — dashboard">
+  <defs>
+    <radialGradient id="bgA" cx="50%" cy="36%" r="80%">
+      <stop offset="0%" stop-color="#17171c"/>
+      <stop offset="55%" stop-color="#101013"/>
+      <stop offset="100%" stop-color="#0b0b0d"/>
+    </radialGradient>
+    <linearGradient id="reflA" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1500" fill="url(#bgA)"/>
+  <g stroke="#ffffff" stroke-opacity="0.04">
+    <line x1="0" y1="375" x2="1200" y2="375"/>
+    <line x1="0" y1="750" x2="1200" y2="750"/>
+    <line x1="0" y1="1125" x2="1200" y2="1125"/>
+  </g>
+  <text x="1120" y="150" text-anchor="end" font-family="'JetBrains Mono',Menlo,Consolas,monospace" font-size="120" font-weight="700" fill="#15151a">01</text>
+  <text x="70" y="92" font-family="'JetBrains Mono',Menlo,Consolas,monospace" font-size="19" letter-spacing="5" fill="#6b7280">TECHISH INNOVATIONS — PRODUCT 01</text>
+
+  <!-- laptop -->
+  <ellipse cx="600" cy="936" rx="540" ry="34" fill="#000000" opacity="0.5"/>
+  <rect x="70" y="170" width="1060" height="680" rx="20" fill="#060607" stroke="#26262b" stroke-width="2"/>
+  <rect x="86" y="186" width="1028" height="648" rx="10" fill="#0d0d12"/>
+  <rect x="36" y="868" width="1128" height="28" rx="14" fill="#101013" stroke="#26262b"/>
+  <rect x="524" y="868" width="152" height="12" rx="6" fill="#060607"/>
+  <rect x="70" y="898" width="1060" height="64" fill="url(#reflA)"/>
+
+  <!-- sidebar -->
+  <rect x="86" y="186" width="200" height="648" fill="#101016"/>
+  <line x1="286" y1="186" x2="286" y2="834" stroke="#1f1f26"/>
+  <text x="108" y="234" font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="25" font-weight="800" fill="#ffffff">Techish</text>
+  <circle cx="252" cy="226" r="4" fill="#7c7cf4"/>
+  <text x="108" y="258" font-family="'JetBrains Mono',Menlo,Consolas,monospace" font-size="11" letter-spacing="3" fill="#8b8fa3">AI EMPLOYEE</text>
+  <g font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="13.5">
+    <rect x="100" y="286" width="174" height="40" rx="10" fill="#1b1b2c" stroke="#30304e"/>
+    <rect x="112" y="299" width="14" height="14" rx="4" fill="#7c7cf4"/>
+    <text x="138" y="312" fill="#ffffff">Dashboard</text>
+    <g fill="none" stroke="#4a4a58" stroke-width="1.6">
+      <rect x="112" y="343" width="14" height="14" rx="4"/><rect x="112" y="387" width="14" height="14" rx="4"/><rect x="112" y="431" width="14" height="14" rx="4"/><rect x="112" y="475" width="14" height="14" rx="4"/><rect x="112" y="519" width="14" height="14" rx="4"/><rect x="112" y="563" width="14" height="14" rx="4"/>
+    </g>
+    <g fill="#9aa0ae">
+      <text x="138" y="356">Conversations</text>
+      <text x="138" y="400">Tasks</text>
+      <text x="138" y="444">Integrations</text>
+      <text x="138" y="488">Analytics</text>
+      <text x="138" y="532">Knowledge</text>
+      <text x="138" y="576">Settings</text>
+    </g>
+  </g>
+
+  <!-- topbar -->
+  <rect x="312" y="202" width="300" height="34" rx="17" fill="#17171d" stroke="#26262c"/>
+  <circle cx="334" cy="219" r="5.5" fill="none" stroke="#6b7280" stroke-width="1.6"/>
+  <line x1="338" y1="223" x2="344" y2="229" stroke="#6b7280" stroke-width="1.6"/>
+  <text x="354" y="224" font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="12.5" fill="#6b7280">Search...</text>
+  <rect x="830" y="200" width="120" height="38" rx="19" fill="#17172a" stroke="#32325a"/>
+  <text x="890" y="224" text-anchor="middle" font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="12.5" fill="#a5a6f6">Ask AI...</text>
+  <circle cx="996" cy="219" r="12" fill="none" stroke="#4a4a55" stroke-width="1.6"/>
+  <circle cx="1002" cy="210" r="3" fill="#7c7cf4"/>
+  <circle cx="1064" cy="219" r="15" fill="#5856d6"/>
+  <text x="1064" y="224" text-anchor="middle" font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="12" font-weight="700" fill="#ffffff">A</text>
+
+  <!-- header -->
+  <text x="312" y="320" font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="26" font-weight="800" fill="#ffffff">Good Morning, Aryan</text>
+  <text x="312" y="346" font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="13" fill="#9ca3af">Your AI employee is working across your business.</text>
+  <rect x="880" y="296" width="104" height="32" rx="8" fill="#141419" stroke="#26262c"/>
+  <text x="932" y="317" text-anchor="middle" font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="11" fill="#9ca3af">Mon, 22 Sep</text>
+  <rect x="992" y="296" width="122" height="32" rx="8" fill="#141419" stroke="#26262c"/>
+  <text x="1053" y="317" text-anchor="middle" font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="11" fill="#9ca3af">Last 7 days</text>
+
+  <!-- stat cards -->
+  <g font-family="Inter,'Segoe UI',system-ui,sans-serif">
+    <g>
+      <rect x="312" y="380" width="180" height="98" rx="12" fill="#141419" stroke="#232329"/>
+      <circle cx="338" cy="410" r="9" fill="#22c55e"/><circle cx="338" cy="410" r="3.5" fill="#0d0d12"/>
+      <text x="360" y="418" font-size="24" font-weight="800" fill="#ffffff">124</text>
+      <text x="336" y="446" font-size="10.5" fill="#9ca3af">Tasks Completed</text>
+      <text x="336" y="466" font-size="11.5" fill="#22c55e">↑ 12%</text>
+    </g>
+    <g>
+      <rect x="506" y="380" width="180" height="98" rx="12" fill="#141419" stroke="#232329"/>
+      <circle cx="532" cy="410" r="9" fill="#6366f1"/><circle cx="532" cy="410" r="3.5" fill="#0d0d12"/>
+      <text x="554" y="418" font-size="24" font-weight="800" fill="#ffffff">37</text>
+      <text x="530" y="446" font-size="10.5" fill="#9ca3af">Conversations Handled</text>
+      <text x="530" y="466" font-size="11.5" fill="#22c55e">↑ 8%</text>
+    </g>
+    <g>
+      <rect x="700" y="380" width="180" height="98" rx="12" fill="#141419" stroke="#232329"/>
+      <circle cx="726" cy="410" r="9" fill="#3b82f6"/><circle cx="726" cy="410" r="3.5" fill="#0d0d12"/>
+      <text x="748" y="418" font-size="24" font-weight="800" fill="#ffffff">16</text>
+      <text x="724" y="446" font-size="10.5" fill="#9ca3af">Automations Executed</text>
+      <text x="724" y="466" font-size="11.5" fill="#22c55e">↑ 14%</text>
+    </g>
+    <g>
+      <rect x="894" y="380" width="180" height="98" rx="12" fill="#141419" stroke="#232329"/>
+      <circle cx="920" cy="410" r="9" fill="#ef4444"/><circle cx="920" cy="410" r="3.5" fill="#0d0d12"/>
+      <text x="942" y="418" font-size="24" font-weight="800" fill="#ffffff">04</text>
+      <text x="918" y="446" font-size="10.5" fill="#9ca3af">Issues Flagged</text>
+      <text x="918" y="466" font-size="11.5" fill="#ef4444">↓ 20%</text>
+    </g>
+  </g>
+
+  <!-- workflows -->
+  <rect x="312" y="498" width="460" height="316" rx="14" fill="#121217" stroke="#232329"/>
+  <text x="336" y="530" font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="15.5" font-weight="700" fill="#ffffff">Active Workflows</text>
+  <text x="748" y="530" text-anchor="end" font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="11.5" fill="#8b8fa3">View all →</text>
+  <g font-family="Inter,'Segoe UI',system-ui,sans-serif">
+    <rect x="336" y="550" width="28" height="28" rx="8" fill="#16a34a"/><text x="350" y="569" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">S</text>
+    <text x="378" y="566" font-size="13" font-weight="600" fill="#ffffff">Process new Shopify orders</text>
+    <text x="378" y="582" font-size="10.5" fill="#7b7f8c">Checking inventory, updating status, sending confirmation</text>
+    <rect x="684" y="556" width="66" height="22" rx="11" fill="#12241a" stroke="#1d3a28"/><circle cx="696" cy="567" r="3" fill="#22c55e"/><text x="704" y="571" font-size="10.5" fill="#4ade80">Running</text>
+
+    <rect x="336" y="600" width="28" height="28" rx="8" fill="#16a34a"/>
+    <g stroke="#ffffff" stroke-width="1.6"><line x1="343" y1="609" x2="357" y2="609"/><line x1="343" y1="614" x2="357" y2="614"/><line x1="343" y1="619" x2="353" y2="619"/></g>
+    <text x="378" y="616" font-size="13" font-weight="600" fill="#ffffff">Generate daily sales report</text>
+    <text x="378" y="632" font-size="10.5" fill="#7b7f8c">Fetching data from Shopify and Google Sheets</text>
+    <rect x="684" y="606" width="66" height="22" rx="11" fill="#12241a" stroke="#1d3a28"/><circle cx="696" cy="617" r="3" fill="#22c55e"/><text x="704" y="621" font-size="10.5" fill="#4ade80">Running</text>
+
+    <rect x="336" y="650" width="28" height="28" rx="8" fill="#2563eb"/>
+    <rect x="343" y="658" width="14" height="10" rx="3" fill="#ffffff"/>
+    <text x="378" y="666" font-size="13" font-weight="600" fill="#ffffff">Respond to customer queries</text>
+    <text x="378" y="682" font-size="10.5" fill="#7b7f8c">Handling 12 new messages</text>
+    <rect x="684" y="656" width="66" height="22" rx="11" fill="#12241a" stroke="#1d3a28"/><circle cx="696" cy="667" r="3" fill="#22c55e"/><text x="704" y="671" font-size="10.5" fill="#4ade80">Running</text>
+
+    <rect x="336" y="700" width="28" height="28" rx="8" fill="#ea580c"/><text x="350" y="719" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">H</text>
+    <text x="378" y="716" font-size="13" font-weight="600" fill="#ffffff">Update CRM leads</text>
+    <text x="378" y="732" font-size="10.5" fill="#7b7f8c">Syncing new leads from website</text>
+    <rect x="684" y="706" width="66" height="22" rx="11" fill="#12241a" stroke="#1d3a28"/><circle cx="696" cy="717" r="3" fill="#22c55e"/><text x="704" y="721" font-size="10.5" fill="#4ade80">Running</text>
+
+    <rect x="336" y="750" width="28" height="28" rx="8" fill="#db2777"/>
+    <circle cx="350" cy="762" r="5" fill="none" stroke="#ffffff" stroke-width="1.6"/><rect x="346" y="768" width="8" height="5" rx="1.5" fill="#ffffff"/>
+    <text x="378" y="766" font-size="13" font-weight="600" fill="#ffffff">Social media content planning</text>
+    <text x="378" y="782" font-size="10.5" fill="#7b7f8c">Generating post ideas for next week</text>
+    <rect x="672" y="756" width="84" height="22" rx="11" fill="#14203a" stroke="#1e3350"/><circle cx="684" cy="767" r="3" fill="#3b82f6"/><text x="692" y="771" font-size="10.5" fill="#60a5fa">Scheduled</text>
+  </g>
+
+  <!-- AI assistant -->
+  <rect x="788" y="498" width="326" height="316" rx="14" fill="#121217" stroke="#232329"/>
+  <text x="812" y="528" font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="15.5" font-weight="700" fill="#ffffff">AI Assistant</text>
+  <circle cx="1046" cy="522" r="3" fill="#22c55e"/>
+  <text x="1090" y="527" text-anchor="end" font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="11" fill="#22c55e">Online</text>
+  <rect x="812" y="544" width="210" height="34" rx="10" fill="#1b1b24"/>
+  <text x="824" y="566" font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="11.5" fill="#d1d5db">How can I help you today?</text>
+  <g font-family="Inter,'Segoe UI',system-ui,sans-serif">
+    <rect x="812" y="590" width="278" height="48" rx="10" fill="#16161c" stroke="#232329"/>
+    <rect x="824" y="602" width="22" height="22" rx="6" fill="#6366f1"/>
+    <text x="856" y="610" font-size="11.5" font-weight="600" fill="#ffffff">Create a new campaign</text>
+    <text x="856" y="626" font-size="9.5" fill="#7b7f8c">Plan and schedule marketing campaign</text>
+    <rect x="812" y="646" width="278" height="48" rx="10" fill="#16161c" stroke="#232329"/>
+    <rect x="824" y="658" width="22" height="22" rx="6" fill="#f59e0b"/>
+    <text x="856" y="666" font-size="11.5" font-weight="600" fill="#ffffff">Analyze sales data</text>
+    <text x="856" y="682" font-size="9.5" fill="#7b7f8c">Get insights from your business data</text>
+    <rect x="812" y="702" width="278" height="48" rx="10" fill="#16161c" stroke="#232329"/>
+    <rect x="824" y="714" width="22" height="22" rx="6" fill="#22c55e"/>
+    <text x="856" y="722" font-size="11.5" font-weight="600" fill="#ffffff">Update product inventory</text>
+    <text x="856" y="738" font-size="9.5" fill="#7b7f8c">Sync with Shopify and notify low stock</text>
+  </g>
+  <rect x="812" y="764" width="278" height="30" rx="15" fill="#17171d" stroke="#26262c"/>
+  <text x="828" y="783" font-family="Inter,'Segoe UI',system-ui,sans-serif" font-size="10.5" fill="#6b7280">Type your message...</text>
+  <rect x="1058" y="768" width="22" height="22" rx="6" fill="#6366f1"/>
+  <path d="M1064 784 L1074 779 L1064 774 L1066 779 Z" fill="#ffffff"/>
+
+  <!-- floating chips + caption -->
+  <rect x="30" y="560" width="180" height="44" rx="22" fill="#12121a" stroke="#2a2a3a"/>
+  <circle cx="52" cy="582" r="4" fill="#22c55e"/>
+  <text x="66" y="587" font-family="'JetBrains Mono',Menlo,Consolas,monospace" font-size="13" fill="#e5e7eb">16 AUTOMATIONS</text>
+  <rect x="990" y="620" width="180" height="44" rx="22" fill="#12121a" stroke="#2a2a3a"/>
+  <circle cx="1012" cy="642" r="4" fill="#7c7cf4"/>
+  <text x="1026" y="647" font-family="'JetBrains Mono',Menlo,Consolas,monospace" font-size="13" fill="#e5e7eb">37 CHATS HANDLED</text>
+  <text x="600" y="1010" text-anchor="middle" font-family="'JetBrains Mono',Menlo,Consolas,monospace" font-size="14" letter-spacing="4" fill="#6b7280">AI THAT WORKS ACROSS YOUR BUSINESS — 24/7</text>
+  <text x="600" y="1190" text-anchor="middle" font-family="'JetBrains Mono',Menlo,Consolas,monospace" font-size="58" letter-spacing="16" fill="#111116">AI EMPLOYEE</text>
+
+  <!-- brand strip -->
+  <rect x="0" y="1360" width="1200" height="140" fill="#0b0b0b"/>
+  <line x1="0" y1="1360" x2="1200" y2="1360" stroke="#222222"/>
+  <text x="70" y="1446" font-family="'JetBrains Mono',Menlo,Consolas,monospace" font-size="30" font-weight="700" letter-spacing="10" fill="#ffffff">TECHISH<tspan fill="#ff7a17">.</tspan></text>
+  <text x="1130" y="1446" text-anchor="end" font-family="'JetBrains Mono',Menlo,Consolas,monospace" font-size="18" letter-spacing="5" fill="#6b7280">AI EMPLOYEES</text>
+</svg>
