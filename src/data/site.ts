@@ -129,7 +129,7 @@ export const HOME_SERVICES: Service[] = [
     description:
       "Technology built around skill-based networks — one of the four opportunities our products are designed for.",
     chips: ["Skill-Based Networks", "Skills", "Emerging Technology"],
-    cta: "Explore Skill-Based Networks",
+    cta: "Explore Skill Networks",
     modal:
       "Networks built around what people can actually do — connecting verified skills to real opportunities without the noise of traditional platforms.",
     href: "/products",
