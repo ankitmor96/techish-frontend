@@ -40,7 +40,10 @@ CONTACT: email ${COMPANY_EMAIL} (fastest channel, reply within one business day)
 CAREERS: currently hiring AI Engineer, Product Engineer, Technology Researcher — remote, full-time. Apply via the careers page at /careers or by email.
 PAGES: Home /, Products /products, About /about, Careers /careers, Contact /contact.
 
-RULES: Answer ANY question helpfully and briefly (2-5 sentences). If asked about Techish, use ONLY the facts above. If asked something unrelated to Techish (general knowledge, coding, anything else), still answer helpfully as a general assistant. When the question relates to a product/page, append on its own line exactly one suggestion like: "Explore: /products" (or /careers, /contact, /about, /) matching the most relevant page.`.trim();
+RULES: ALWAYS answer the question itself first — a direct, helpful answer in 2-5 sentences. Never reply with just a page suggestion. For non-Techish questions (general knowledge, coding, advice, anything), answer normally as a capable assistant and do NOT add any page link. Only when the question clearly maps to one of the pages above AND visiting it would genuinely help the user, append as the very last line exactly one: Explore: /path (only /products, /careers, /contact, /about, or /).`.trim();
+
+/** Compact knowledge for the key-less GET endpoint (URL length + speed). */
+const SITE_KNOWLEDGE_SHORT = `You are the official assistant of Techish Innovations (techishinnovation.com), a product company building in-house: AI Employees (AI agents, automation, business intelligence), Civic Alert (real-time road & public-safety alert infrastructure for cities), EV Circular (EV battery lifecycle: collection, diagnostics, second life, recycling), Skill-Based Networks (professional networks built on verified skills). Process: Research, Prototype, Build, Ship & Iterate. Contact: ${COMPANY_EMAIL} (reply within one business day). Hiring: AI Engineer, Product Engineer, Technology Researcher (remote, full-time). RULES: Answer the question directly in 2-5 sentences — always give a real answer, never only a page suggestion. Non-Techish questions: answer normally, no page link. If the question clearly maps to a page, end with one line like: Explore: /products (or /careers, /contact, /about, /)`.trim();
 
 /** Deterministic answers used when the AI endpoint is unreachable. */
 const ANSWERS: Array<{
@@ -98,12 +101,28 @@ interface AiParsed {
   content?: string;
 }
 
+/** fetch() with a hard timeout so a slow provider can't stall the chat. */
+async function fetchWithTimeout(
+  url: string,
+  ms: number,
+  init?: RequestInit,
+): Promise<Response> {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), ms);
+  try {
+    return await fetch(url, { ...init, signal: ctrl.signal });
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 /** Primary: Gemini (if a key is configured). Returns null when unusable. */
 async function geminiReply(question: string): Promise<string | null> {
   if (!GEMINI_KEY) return null;
   try {
-    const res = await fetch(
+    const res = await fetchWithTimeout(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_KEY}`,
+      12000,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -122,6 +141,15 @@ async function geminiReply(question: string): Promise<string | null> {
   } catch {
     return null;
   }
+}
+
+/** Strips markdown decorations some models add (plain-text chat bubble). */
+function cleanAiText(text: string): string {
+  return text
+    .replace(/\*\*/g, "")
+    .replace(/(^|\n)#+\s*/g, "$1")
+    .replace(/`/g, "")
+    .trim();
 }
 
 /** Maps a trailing "Explore: /path" line from the AI reply to a chat link. */
@@ -160,35 +188,32 @@ async function streamAiReply(
     return gemini;
   }
 
-  // 2) Pollinations (free, key-less) with retries — it rate-limits per IP.
-  // Knowledge is prefixed into the prompt itself (GET path has no system param).
+  // 2) Pollinations (free, key-less) — ONE quick attempt with a compact
+  // prompt (long prompts hit URL limits and queue-full errors). No retry
+  // loop: on any failure we fall through to the instant keyword answer.
   const url = `${AI_ENDPOINT}${encodeURIComponent(
-    `${SITE_KNOWLEDGE}\n\nUser question: ${question}`,
+    `${SITE_KNOWLEDGE_SHORT}\n\nUser question: ${question}`,
   )}`;
   let content = "";
-  for (let attempt = 0; attempt < 2; attempt++) {
+  try {
+    const res = await fetchWithTimeout(url, 10000);
+    if (!res.ok) throw new Error(`AI ${res.status}`);
+    const raw = await res.text();
+    let parsed: unknown = raw;
     try {
-      const res = await fetch(url);
-      if (!res.ok) throw new Error(`AI ${res.status}`);
-      const raw = await res.text();
-      let parsed: unknown = raw;
-      try {
-        parsed = JSON.parse(raw);
-      } catch {
-        /* plain text response */
-      }
-      if (typeof parsed === "string") {
-        content = parsed;
-      } else {
-        const obj = parsed as AiParsed;
-        content = obj.choices?.[0]?.message?.content ?? obj.content ?? "";
-      }
-      if (content.trim()) break;
-      throw new Error("AI empty");
+      parsed = JSON.parse(raw);
     } catch {
-      if (attempt === 1) throw new Error("AI unavailable");
-      await new Promise((r) => setTimeout(r, 2500));
+      /* plain text response */
     }
+    if (typeof parsed === "string") {
+      content = parsed;
+    } else {
+      const obj = parsed as AiParsed;
+      content = obj.choices?.[0]?.message?.content ?? obj.content ?? "";
+    }
+    if (!content.trim()) throw new Error("AI empty");
+  } catch {
+    throw new Error("AI unavailable");
   }
   await revealText(content, onChunk);
   return content;
@@ -203,8 +228,8 @@ async function revealText(
   let full = "";
   for (let i = 0; i < words.length; i++) {
     full += words[i];
-    if (i % 2 === 0) onChunk(full);
-    if (i % 6 === 0) await new Promise((r) => setTimeout(r, 15));
+    if (i % 3 === 0) onChunk(full);
+    if (i % 10 === 0) await new Promise((r) => setTimeout(r, 12));
   }
   onChunk(full);
 }
@@ -249,7 +274,7 @@ export function ChatbotWidget() {
 
     try {
       const full = await streamAiReply(text, updateBot);
-      const { text: clean, link } = extractLink(full);
+      const { text: clean, link } = extractLink(cleanAiText(full));
       setMessages((m) => {
         const copy = [...m];
         if (botIndex >= 0 && botIndex < copy.length) {
