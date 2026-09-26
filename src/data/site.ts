@@ -31,7 +31,7 @@ export const NAV_GROUPS: NavGroup[] = [
 ];
 
 /** The company's official email address — single source of truth used across the site. */
-export const COMPANY_EMAIL = "careers@techishinnovation.com";
+export const COMPANY_EMAIL = "techishinnovation@gmail.com";
 
 export const HOME_MARQUEE: string[] = [
   "AI",
