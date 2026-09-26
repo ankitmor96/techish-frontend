@@ -12,9 +12,12 @@ import {
   CRAFT_PROCESS,
   CRAFT_STANDARDS,
   CRAFT_PITFALLS,
-  COMPANY_EMAIL,
   type Service,
 } from "@/data/site";
+import {
+  COMPANY_EMAIL,
+  handleEmailClick,
+} from "@/components/site/email";
 
 /**
  * Product image band — wired to the user-provided product images.
@@ -365,7 +368,11 @@ function ProductModal({
             )}
             <div className="tk-modal-contact">
               <p className="tk-eyebrow">Get in Touch</p>
-              <a className="tk-modal-email" href={`mailto:${COMPANY_EMAIL}`}>
+              <a
+                className="tk-modal-email"
+                href={`mailto:${COMPANY_EMAIL}`}
+                onClick={(e) => handleEmailClick(e, service.title)}
+              >
                 {COMPANY_EMAIL}
               </a>
               <a
@@ -373,6 +380,7 @@ function ProductModal({
                 href={`mailto:${COMPANY_EMAIL}?subject=${encodeURIComponent(
                   service.title,
                 )}`}
+                onClick={(e) => handleEmailClick(e, service.title)}
               >
                 Email Us About {service.title}
               </a>

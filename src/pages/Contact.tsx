@@ -7,8 +7,11 @@ import {
   CONTACT_PROCESS,
   CONTACT_CHANNELS,
   CONTACT_POINTS,
-  COMPANY_EMAIL,
 } from "@/data/site";
+import {
+  COMPANY_EMAIL,
+  handleEmailClick,
+} from "@/components/site/email";
 
 export default function Contact() {
   return (
@@ -48,6 +51,7 @@ export default function Contact() {
                 <a
                   className="tk-window-email"
                   href={`mailto:${COMPANY_EMAIL}`}
+                  onClick={(e) => handleEmailClick(e)}
                 >
                   {COMPANY_EMAIL}
                 </a>
@@ -56,6 +60,9 @@ export default function Contact() {
                   href={`mailto:${COMPANY_EMAIL}?subject=${encodeURIComponent(
                     "Problem worth solving",
                   )}`}
+                  onClick={(e) =>
+                    handleEmailClick(e, "Problem worth solving")
+                  }
                 >
                   Email Us
                 </a>
@@ -73,6 +80,7 @@ export default function Contact() {
               Email is the fastest channel — reach us directly at{" "}
               <a
                 href={`mailto:${COMPANY_EMAIL}`}
+                onClick={(e) => handleEmailClick(e)}
                 style={{ color: "var(--tk-accent)" }}
               >
                 {COMPANY_EMAIL}

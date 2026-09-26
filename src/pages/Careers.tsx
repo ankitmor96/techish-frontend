@@ -14,6 +14,7 @@ import {
   CAREERS_FAQS,
   CAREERS_CULTURE,
 } from "@/data/site";
+import { handleEmailClick } from "@/components/site/email";
 
 const POLICY_LINES: TerminalLine[] = [
   {
@@ -135,6 +136,9 @@ export default function Careers() {
                 <a
                   href="mailto:careers@techishinnovation.com"
                   className="tk-arrowlink"
+                  onClick={(e) =>
+                    handleEmailClick(e, `Application: ${job.title}`)
+                  }
                 >
                   Apply Now
                 </a>
