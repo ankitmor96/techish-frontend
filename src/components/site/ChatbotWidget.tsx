@@ -18,7 +18,7 @@ const SUGGESTIONS = [
 
 const FALLBACK: ChatMessage = {
   role: "bot",
-  text: "Connection issue — please try again in a moment. For anything specific, email us and we'll reply within one business day.",
+  text: `My AI brain is briefly unreachable. I can still answer instantly about Techish — products, roles, contact — or email ${COMPANY_EMAIL} and we'll reply within one business day.`,
   link: { label: "Contact us →", to: "/contact" },
 };
 
@@ -52,6 +52,14 @@ const ANSWERS: Array<{
   link?: { label: string; to: string };
 }> = [
   {
+    keywords: ["hi", "hello", "hey", "namaste", "kem cho", "good morning", "good evening"],
+    text: "Hi! I'm the Techish AI assistant. Ask me anything — our products (AI Employees, Civic Alert, EV Circular, Skill-Based Networks), open roles, contact details, or any other question at all.",
+  },
+  {
+    keywords: ["who are you", "what can you do", "your name", "what do you do"],
+    text: "I'm the Techish Innovations assistant — a mini AI chat that also knows our company inside out. Ask about our products, careers, or contact info, or anything else you're curious about.",
+  },
+  {
     keywords: ["service", "offer", "build", "product", "web", "mobile", "ai", "tech"],
     text: "Techish Innovations builds its own products: AI Employees, Civic Alert, EV Circular, and Skill-Based Networks — AI, software, and emerging technology for real-world problems.",
     link: { label: "Explore our products →", to: "/products" },
@@ -67,7 +75,7 @@ const ANSWERS: Array<{
     link: { label: "See products →", to: "/products" },
   },
   {
-    keywords: ["skill", "network", "hire", "freelanc"],
+    keywords: ["skill", "network", "hire", "freelance", "freelancing"],
     text: "Skill-Based Networks connects verified skills to real opportunities — a professional network built around what people can actually do.",
     link: { label: "See products →", to: "/products" },
   },
@@ -85,7 +93,9 @@ const ANSWERS: Array<{
 
 function keywordAnswer(input: string): ChatMessage {
   const q = input.toLowerCase();
-  const match = ANSWERS.find((a) => a.keywords.some((k) => q.includes(k)));
+  const match = ANSWERS.find((a) =>
+    a.keywords.some((k) => new RegExp(`\\b${k}\\b`).test(q)),
+  );
   if (match) return { role: "bot", text: match.text, link: match.link };
   return FALLBACK;
 }
@@ -188,15 +198,14 @@ async function streamAiReply(
     return gemini;
   }
 
-  // 2) Pollinations (free, key-less) — ONE quick attempt with a compact
-  // prompt (long prompts hit URL limits and queue-full errors). No retry
-  // loop: on any failure we fall through to the instant keyword answer.
-  const url = `${AI_ENDPOINT}${encodeURIComponent(
-    `${SITE_KNOWLEDGE_SHORT}\n\nUser question: ${question}`,
-  )}`;
-  let content = "";
-  try {
-    const res = await fetchWithTimeout(url, 10000);
+  // 2) Pollinations (free, key-less) — quick attempts with hard timeouts.
+  // Short prompts succeed far more often on this free endpoint, so the
+  // retry uses a minimal knowledge line instead of the full prompt.
+  const ask = async (prompt: string, ms: number): Promise<string> => {
+    const res = await fetchWithTimeout(
+      `${AI_ENDPOINT}${encodeURIComponent(prompt)}`,
+      ms,
+    );
     if (!res.ok) throw new Error(`AI ${res.status}`);
     const raw = await res.text();
     let parsed: unknown = raw;
@@ -205,15 +214,31 @@ async function streamAiReply(
     } catch {
       /* plain text response */
     }
-    if (typeof parsed === "string") {
-      content = parsed;
-    } else {
-      const obj = parsed as AiParsed;
-      content = obj.choices?.[0]?.message?.content ?? obj.content ?? "";
-    }
-    if (!content.trim()) throw new Error("AI empty");
+    const text =
+      typeof parsed === "string"
+        ? parsed
+        : ((parsed as AiParsed).choices?.[0]?.message?.content ??
+          (parsed as AiParsed).content ??
+          "");
+    if (!text.trim()) throw new Error("AI empty");
+    return text;
+  };
+
+  let content = "";
+  try {
+    content = await ask(
+      `${SITE_KNOWLEDGE_SHORT}\n\nUser question: ${question}`,
+      10000,
+    );
   } catch {
-    throw new Error("AI unavailable");
+    try {
+      content = await ask(
+        `Techish Innovations (techishinnovation.com) builds in-house: AI Employees, Civic Alert, EV Circular, Skill-Based Networks. Contact ${COMPANY_EMAIL}. Answer directly in 2-5 sentences, no page links. Question: ${question}`,
+        8000,
+      );
+    } catch {
+      throw new Error("AI unavailable");
+    }
   }
   await revealText(content, onChunk);
   return content;
